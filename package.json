@@ -1,11 +1,12 @@
 {
-    "name": "tailwind",
-    "scripts": {
-        "start": "npx http-server",
-        "css": "npx tailwindcss -i ./base.css -o ./dist/output.css --watch"
-    },
-    "devDependencies": {
-        "http-server": "^14.1.1",
-        "tailwindcss": "^3.2.7"
-    }
+  "name": "tailwind",
+  "scripts": {
+    "start": "npx http-server",
+    "css": "npx tailwindcss -i ./base.css -o ./dist/output.css --watch"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "prettier": "^2.8.4",
+    "tailwindcss": "^3.2.7"
+  }
 }
