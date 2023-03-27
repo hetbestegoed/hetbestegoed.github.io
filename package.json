@@ -1,7 +1,7 @@
 {
   "name": "tailwind",
   "scripts": {
-    "start": "npx http-server",
+    "start": "npx http-server .",
     "css": "npx tailwindcss -i ./base.css -o ./dist/output.css --watch"
   },
   "devDependencies": {
