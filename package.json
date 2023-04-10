@@ -2,7 +2,8 @@
   "name": "tailwind",
   "scripts": {
     "start": "npx http-server .",
-    "css": "npx tailwindcss -i ./base.css -o ./dist/output.css --watch"
+    "css": "npx tailwindcss -i ./base.css -o ./dist/output.css --watch",
+    "css:prod": "npx tailwindcss -i ./base.css -o ./dist/output.css --optimize"
   },
   "devDependencies": {
     "http-server": "^14.1.1",
