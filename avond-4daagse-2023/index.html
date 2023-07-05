@@ -73,7 +73,9 @@
 
       <h3 class="text-2xl pt-5 font-bold pb-5">Routes 10km</h3>
       <div class="space-y-5">
-        <div class="flex justify-around flex-col md:flex-row space-y-5 md:space-y-0">
+        <div
+          class="flex justify-around flex-col md:flex-row space-y-5 md:space-y-0"
+        >
           <div>
             <a
               class="text-blue-600 visited:text-purple-600 focus:underline hover:underline"
@@ -111,7 +113,9 @@
             ></iframe>
           </div>
         </div>
-        <div class="flex justify-around flex-col md:flex-row space-y-5 md:space-y-0">
+        <div
+          class="flex justify-around flex-col md:flex-row space-y-5 md:space-y-0"
+        >
           <div>
             <a
               class="text-blue-600 visited:text-purple-600 focus:underline hover:underline"
@@ -153,7 +157,9 @@
 
       <h3 class="text-2xl pt-5 font-bold pb-5">Routes 5km</h3>
       <div class="space-y-5">
-        <div class="flex justify-around flex-col md:flex-row space-y-5 md:space-y-0">
+        <div
+          class="flex justify-around flex-col md:flex-row space-y-5 md:space-y-0"
+        >
           <div>
             <a
               class="text-blue-600 visited:text-purple-600 focus:underline hover:underline"
@@ -191,7 +197,9 @@
             ></iframe>
           </div>
         </div>
-        <div class="flex justify-around flex-col md:flex-row space-y-5 md:space-y-0">
+        <div
+          class="flex justify-around flex-col md:flex-row space-y-5 md:space-y-0"
+        >
           <div>
             <a
               class="text-blue-600 visited:text-purple-600 focus:underline hover:underline"
@@ -292,6 +300,48 @@
           >info@hetbestegoed.nl</a
         >, dan nemen we zo snel mogelijk contact op.
       </p>
+
+      <h2 class="text-2xl pt-5 font-bold">Foto's 2023</h2>
+      <div id="photos" class="py-2 flex flex-wrap"></div>
+      <script>
+        (function () {
+          function createContainer() {
+            var div = document.createElement("div");
+            div.className = "w-1/4 flex flex-col flex-auto";
+            return div;
+          }
+          var path = "/public/photos-2023/avond-4daagse-elst-2023-";
+          var max_photos = 75;
+          var columns = [
+            createContainer(),
+            createContainer(),
+            createContainer(),
+            createContainer(),
+          ];
+          var $photos_container = document.getElementById("photos");
+          for (var i = 1; i <= max_photos; i++) {
+            var image_path = path + i.toString().padStart(5, "0") + ".jpg";
+            var column = columns[i % columns.length];
+
+            var image = document.createElement("img");
+            image.setAttribute("src", image_path);
+            image.setAttribute("loading", "lazy");
+            image.className = "w-100 align-middle p-1 border-box";
+
+            var link = document.createElement("a");
+            link.setAttribute("href", image_path);
+            link.setAttribute("target", "_blank");
+
+            link.appendChild(image);
+            column.appendChild(link);
+          }
+
+          for (var i = 0, l = columns.length; i < l; i++) {
+            photos.appendChild(columns[i]);
+          }
+        })();
+      </script>
+
       <h2 class="text-2xl pt-5 font-bold">Sponsoren</h2>
       <p class="pt-2">
         Wilt u de avondvierdaagse te Elst steunen middels sponsoring of wilt u
