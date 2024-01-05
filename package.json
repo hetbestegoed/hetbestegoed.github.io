@@ -2,8 +2,8 @@
   "name": "tailwind",
   "scripts": {
     "start": "npx http-server .",
-    "css": "npx tailwindcss -i ./base.css -o ./dist/output.css --watch",
-    "css:prod": "npx tailwindcss -i ./base.css -o ./dist/output.css --optimize",
+    "css": "npx tailwindcss -i ./base.css -o ./public/css/styles.css --watch",
+    "css:prod": "npx tailwindcss -i ./base.css -o ./public/css/styles.css --optimize",
     "build:prod": "npm run css:prod && cp index.html dist/ && cp -R avond-4daagse-elst dist/ && cp -R public dist/"
   },
   "devDependencies": {
