@@ -65,6 +65,118 @@
         avond wordt er in een ander gedeelte van onze directe omgeving
         gewandeld.
       </p>
+      <h3 class="text-xl pt-5 font-bold">Routes 5km</h3>
+      <div id="routes-5" class="py-2"></div>
+
+      <h3 class="text-xl pt-5 font-bold">Routes 10km</h3>
+      <div id="routes-10" class="py-2"></div>
+
+      <script>
+        (function () {
+          function createContainer(dag, afstand, afstandmeten_id, doc, index) {
+            var container = document.createElement("article");
+            container.className = "order-" + (index + 1);
+
+            var title = document.createElement("h3");
+            var titleContent = document.createTextNode(
+              "Dag " + dag + " - " + afstand,
+            );
+            title.appendChild(titleContent);
+            title.className = "text-l pb-2 font-bold";
+
+            var map = document.createElement("iframe");
+            map.src =
+              "https://www.afstandmeten.nl/embed.php?id=" +
+              afstandmeten_id +
+              "&kmStep=1";
+
+            var link_afstandmeten = createLink(
+              "Bekijk route op afstandmeten",
+              "https://www.afstandmeten.nl/index.php?id=" + afstandmeten_id,
+            );
+            var link_docs = createLink(
+              "Routebeschrijving: " + doc,
+              "/public/documents/" + doc,
+            );
+
+            container.appendChild(title);
+            container.appendChild(map);
+            container.appendChild(link_afstandmeten);
+            container.appendChild(document.createElement("br"));
+            container.appendChild(link_docs);
+
+            return container;
+          }
+          function createLink(text, href) {
+            var content = document.createTextNode(text);
+            var a = document.createElement("a");
+            a.href = href;
+            a.target = "_blank";
+            a.className =
+              "display-block text-blue-600 visited:text-purple-600 focus:underline hover:underline";
+            a.appendChild(content);
+            return a;
+          }
+          function addRoutesToContainer(routes, afstand, container) {
+            for (var i = 0; i < routes.length; i++) {
+              var dag = createContainer(
+                "" + (i + 1),
+                afstand,
+                routes[i].afstandmeten_id,
+                routes[i].doc,
+                i,
+              );
+              container.appendChild(dag);
+            }
+          }
+
+          var $routes_5_container = document.getElementById("routes-5");
+          var $routes_10_container = document.getElementById("routes-10");
+          var routes = {
+            km5: [
+              {
+                afstandmeten_id: "3710630",
+                doc: "A4D Elst 2024 Dag 1 - 5 km.docx",
+              },
+              {
+                afstandmeten_id: "3710632",
+                doc: "A4D Elst 2024 Dag 2 - 5 km.docx",
+              },
+              {
+                afstandmeten_id: "3710631",
+                doc: "A4D Elst 2024 Dag 3 - 5 km.docx",
+              },
+              {
+                afstandmeten_id: "3710629",
+                doc: "A4D Elst 2024 Dag 4 - 5 km.docx",
+              },
+            ],
+            km10: [
+              {
+                afstandmeten_id: "3710624",
+                doc: "A4D Elst 2024 Dag 1 - 10 km.docx",
+              },
+              {
+                afstandmeten_id: "3710628",
+                doc: "A4D Elst 2024 Dag 2 - 10 km.docx",
+              },
+              {
+                afstandmeten_id: "3710627",
+                doc: "A4D Elst 2024 Dag 3 - 10 km.docx",
+              },
+              {
+                afstandmeten_id: "3710626",
+                doc: "A4D Elst 2024 Dag 4 - 10 km.docx",
+              },
+            ],
+          };
+
+          addRoutesToContainer(routes.km5, "5KM", $routes_5_container);
+          addRoutesToContainer(routes.km10, "10KM", $routes_10_container);
+        })();
+      </script>
+
+      <h2 class="text-xl pt-2 font-bold">Startlocatie</h2>
       <p class="py-2">
         De start- en finish locatie is Het Eiveld, Tabaksweg 20, 3921 CM Elst
       </p>
