@@ -1,0 +1,38 @@
+# https://jekyllrb.com/docs/continuous-integration/github-actions/
+name: Build and deploy site to GitHub Pages
+on:
+  push:
+    branches:
+      - master
+jobs:
+  github-pages:
+    runs-on: ubuntu-latest
+    steps:
+      # Prepare
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "22"
+          cache: "npm"
+      # Caching
+      - uses: actions/cache@v2
+        id: npm_cache
+        with:
+          path: ./node_modules
+          key: ${{ runner.os}}-npm-${{ hashFiles('package-lock.json') }}
+      # Dependencies
+      - name: Install NPM dependencies
+        if: steps.npm_cache.outputs.cache-hit != 'true'
+        run: npm ci --ignore-scripts --no-audit --no-fund --legacy-peer-deps
+      # Build
+      - run: npm run build:prod
+      - run: cp CNAME ./dist
+      # Publish
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          force_orphan: true
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
