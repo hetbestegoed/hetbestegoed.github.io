@@ -5,7 +5,7 @@
     "start:prod": "npx http-server ./dist",
     "css:dev": "npx tailwindcss -i ./base.css -o ./public/css/styles.css --watch",
     "css:prod": "npx tailwindcss -i ./base.css -o ./public/css/styles.css --minify",
-    "build:prod": "npm run css:prod && cp index.html dist/ && cp -R avond-4daagse-elst dist/ && cp -R uitgaansdag-senioren dist/ && cp -R public dist/"
+    "build:prod": "rm -rf dist/ && npm run css:prod && mkdir -p dist/ && cp index.html dist/ && cp -R avond-4daagse-elst dist/ && cp -R uitgaansdag-senioren dist/ && cp -R public dist/"
   },
   "devDependencies": {
     "http-server": "^14.1.1",
