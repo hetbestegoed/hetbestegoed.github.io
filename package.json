@@ -8,8 +8,8 @@
     "build:prod": "rm -rf dist/ && npm run css:prod && mkdir -p dist/ && cp index.html dist/ && cp -R avond-4daagse-elst dist/ && cp -R uitgaansdag-senioren dist/ && cp -R public dist/"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "http-server": "^14.1.1",
-    "prettier": "^3.4.2",
     "tailwindcss": "^4.0.3"
   }
 }
