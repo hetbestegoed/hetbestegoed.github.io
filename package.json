@@ -1,15 +1,16 @@
 {
   "name": "tailwind",
   "scripts": {
-    "start:dev": "npx http-server -a localhost -p 3000 .",
-    "start:prod": "npx http-server -a localhost -p 3000 ./dist",
-    "css:dev": "npx @tailwindcss/cli -i ./base.css -o ./public/css/styles.css --watch",
-    "css:prod": "npx @tailwindcss/cli -i ./base.css -o ./public/css/styles.css --minify",
-    "build:prod": "rm -rf dist/ && npm run css:prod && mkdir -p dist/ && cp index.html dist/ && cp -R avond-4daagse-elst dist/ && cp -R uitgaansdag-senioren dist/ && cp -R public dist/"
+    "start:dev": "pnpm http-server -a localhost -p 3000 .",
+    "start:prod": "pnpm http-server -a localhost -p 3000 ./dist",
+    "css:dev": "pnpm @tailwindcss/cli -i ./base.css -o ./public/css/styles.css --watch",
+    "css:prod": "pnpm @tailwindcss/cli -i ./base.css -o ./public/css/styles.css --minify",
+    "build:prod": "rm -rf dist/ && pnpm run css:prod && mkdir -p dist/ && cp index.html dist/ && cp -R avond-4daagse-elst dist/ && cp -R uitgaansdag-senioren dist/ && cp -R public dist/"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "http-server": "^14.1.1",
-    "tailwindcss": "^4.1.5"
+    "tailwindcss": "^4.1.6",
+    "@tailwindcss/cli": "^4.1.6"
   }
 }
