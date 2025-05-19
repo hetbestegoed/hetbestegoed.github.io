@@ -65,11 +65,16 @@
         avond wordt er in een ander gedeelte van onze directe omgeving
         gewandeld.
       </p>
-      <!--<h3 class="text-xl pt-5 font-bold">Routes 5km</h3>-->
-      <!--<div id="routes-5" class="py-2"></div>-->
-      <!---->
-      <!--<h3 class="text-xl pt-5 font-bold">Routes 10km</h3>-->
-      <!--<div id="routes-10" class="py-2"></div>-->
+      <p class="pt-2">
+        <b>Starttijden:</b><br/>
+        10 km van 18.00-18.18 uur, op vrijdag van 17.45-18.00 uur<br/>
+        5 km van 18.15-18.30 uur
+      </p>
+      <h3 class="text-xl pt-5 font-bold">Routes 5km</h3>
+      <div id="routes-5" class="py-2"></div>
+
+      <h3 class="text-xl pt-5 font-bold">Routes 10km</h3>
+      <div id="routes-10" class="py-2"></div>
 
       <script>
         (function () {
@@ -84,12 +89,6 @@
             title.appendChild(titleContent);
             title.className = "text-l pb-2 font-bold";
 
-            var map = document.createElement("iframe");
-            map.src =
-              "https://www.afstandmeten.nl/embed.php?id=" +
-              afstandmeten_id +
-              "&kmStep=1";
-
             var link_afstandmeten = createLink(
               "Bekijk route op afstandmeten",
               "https://www.afstandmeten.nl/index.php?id=" + afstandmeten_id,
@@ -100,9 +99,19 @@
             );
 
             container.appendChild(title);
-            container.appendChild(map);
-            container.appendChild(link_afstandmeten);
-            container.appendChild(document.createElement("br"));
+
+            if (afstandmeten_id) {
+              var map = document.createElement("iframe");
+              map.src =
+                "https://www.afstandmeten.nl/embed.php?id=" +
+                afstandmeten_id +
+                "&kmStep=1";
+
+              container.appendChild(map);
+              container.appendChild(link_afstandmeten);
+              container.appendChild(document.createElement("br"));
+            }
+
             container.appendChild(link_docs);
 
             return container;
@@ -134,45 +143,30 @@
           var $routes_10_container = document.getElementById("routes-10");
           var routes = {
             km5: [
-              {
-                afstandmeten_id: "3710630",
-                doc: "A4D Elst 2024 Dag 1 - 5 km.docx",
-              },
-              {
-                afstandmeten_id: "3710632",
-                doc: "A4D Elst 2024 Dag 2 - 5 km.docx",
-              },
-              {
-                afstandmeten_id: "3710631",
-                doc: "A4D Elst 2024 Dag 3 - 5 km.docx",
-              },
-              {
-                afstandmeten_id: "3710629",
-                doc: "A4D Elst 2024 Dag 4 - 5 km.docx",
-              },
+              // { afstandmeten_id: "3710630", doc: "A4D Elst 2024 Dag 1 - 5 km.docx", },
+              // { afstandmeten_id: "3710632", doc: "A4D Elst 2024 Dag 2 - 5 km.docx", },
+              // { afstandmeten_id: "3710631", doc: "A4D Elst 2024 Dag 3 - 5 km.docx", },
+              // { afstandmeten_id: "3710629", doc: "A4D Elst 2024 Dag 4 - 5 km.docx", },
+              { afstandmeten_id: null, doc: "A4D Elst 2025 Dag 1, 5 km. compleet.docx" },
+              { afstandmeten_id: null, doc: "A4D Elst 2025 Dag 2, 5 km. compleet.docx" },
+              { afstandmeten_id: null, doc: "A4D Elst 2025 Dag 3, 5 km. compleet.docx" },
+              { afstandmeten_id: null, doc: "A4D Elst 2025 dag 4, 5 km compleet.docx" },
             ],
             km10: [
-              {
-                afstandmeten_id: "3710624",
-                doc: "A4D Elst 2024 Dag 1 - 10 km.docx",
-              },
-              {
-                afstandmeten_id: "3710628",
-                doc: "A4D Elst 2024 Dag 2 - 10 km.docx",
-              },
-              {
-                afstandmeten_id: "3710627",
-                doc: "A4D Elst 2024 Dag 3 - 10 km.docx",
-              },
-              {
-                afstandmeten_id: "3710626",
-                doc: "A4D Elst 2024 Dag 4 - 10 km.docx",
-              },
+              // { afstandmeten_id: "3710624", doc: "A4D Elst 2024 Dag 1 - 10 km.docx", },
+              // { afstandmeten_id: "3710628", doc: "A4D Elst 2024 Dag 2 - 10 km.docx", },
+              // { afstandmeten_id: "3710627", doc: "A4D Elst 2024 Dag 3 - 10 km.docx", },
+              // { afstandmeten_id: "3710626", doc: "A4D Elst 2024 Dag 4 - 10 km.docx", },
+              { afstandmeten_id: null, doc: "A4D Elst 2025 Dag 1, 9,7 km. compleet.docx" },
+              { afstandmeten_id: null, doc: "A4D Elst 2025 Dag 2, 10,3 km. compleet.docx" },
+              { afstandmeten_id: null, doc: "A4D Elst 2025 Dag 3, 10,0 km. compleet.docx" },
+              { afstandmeten_id: null, doc: "A4D Elst 2025 Dag 4, 8.9 km. compleet.docx" },
             ],
           };
 
-          //addRoutesToContainer(routes.km5, "5KM", $routes_5_container);
-          //addRoutesToContainer(routes.km10, "10KM", $routes_10_container);
+
+          addRoutesToContainer(routes.km5, "5KM", $routes_5_container);
+          addRoutesToContainer(routes.km10, "10KM", $routes_10_container);
         })();
       </script>
 
