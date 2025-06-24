@@ -8,9 +8,9 @@
     "build:prod": "rm -rf dist/ && pnpm run css:prod && mkdir -p dist/ && cp index.html dist/ && cp -R avond-4daagse-elst dist/ && cp -R uitgaansdag-senioren dist/ && cp -R public dist/"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
+    "@biomejs/biome": "2.0.5",
+    "@tailwindcss/cli": "^4.1.10",
     "http-server": "^14.1.1",
-    "tailwindcss": "^4.1.6",
-    "@tailwindcss/cli": "^4.1.6"
+    "tailwindcss": "^4.1.10"
   }
 }
