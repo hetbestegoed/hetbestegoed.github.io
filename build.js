@@ -4,9 +4,10 @@
  * This script post-processes the static HTML files.
  * It performs the following optimizations:
  *
- * 1. CSS inlining - Inlines external stylesheets into <style> tags
- * 2. CSS minification - Minifies CSS using csso
- * 3. HTML minification - Removes whitespace and comments
+ * 1. Image optimization - Compresses JPEG/PNG images
+ * 2. CSS inlining - Inlines external stylesheets into <style> tags
+ * 3. CSS minification - Minifies CSS using csso
+ * 4. HTML minification - Removes whitespace and comments
  *
  * Note: Tailwind v4 already handles CSS purging during build,
  * so we don't need PurgeCSS (which also has issues with :where() selectors).
@@ -20,6 +21,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { minify as minifyCss } from "csso";
 import { minify as minifyHtml } from "html-minifier-terser";
+import sharp from "sharp";
 
 const SOURCE = process.env.BUILD_DIR || "dist";
 const ROOT = dirname(fileURLToPath(import.meta.url));
@@ -42,6 +44,31 @@ async function findFiles(dir, ext) {
     }
   }
   return files;
+}
+
+/**
+ * Optimizes a single image file.
+ *
+ * @param {string} filePath - Absolute path to the image file
+ */
+async function optimizeImage(filePath) {
+  const ext = filePath.toLowerCase().split('.').pop();
+
+  if (ext === 'jpg' || ext === 'jpeg') {
+    await sharp(filePath)
+      .jpeg({ quality: 85, progressive: true, mozjpeg: true })
+      .toFile(filePath + '.tmp');
+    await unlink(filePath);
+    await writeFile(filePath, await readFile(filePath + '.tmp'));
+    await unlink(filePath + '.tmp');
+  } else if (ext === 'png') {
+    await sharp(filePath)
+      .png({ quality: 85, compressionLevel: 9 })
+      .toFile(filePath + '.tmp');
+    await unlink(filePath);
+    await writeFile(filePath, await readFile(filePath + '.tmp'));
+    await unlink(filePath + '.tmp');
+  }
 }
 
 /**
@@ -80,11 +107,21 @@ async function processHtml(filePath, baseCss) {
 
 /**
  * Main build function.
- * Processes all HTML and CSS files in the source directory.
+ * Processes all HTML, CSS, and image files in the source directory.
  */
 async function build() {
   const start = performance.now();
   const sourceDir = join(ROOT, SOURCE);
+
+  // Optimize images
+  console.log('Optimizing images...');
+  const jpgFiles = await findFiles(sourceDir, ".jpg");
+  const jpegFiles = await findFiles(sourceDir, ".jpeg");
+  const pngFiles = await findFiles(sourceDir, ".png");
+  const imageFiles = [...jpgFiles, ...jpegFiles, ...pngFiles];
+  console.log(`Optimizing ${imageFiles.length} image(s)...`);
+  await Promise.all(imageFiles.map(optimizeImage));
+  console.log(`Optimized ${imageFiles.length} image(s)`);
 
   // Load all CSS files into memory
   const cssFiles = await findFiles(sourceDir, ".css");
