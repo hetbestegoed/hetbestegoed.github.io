@@ -12,7 +12,8 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import yaml from "js-yaml";
 
-const ROOT = dirname(fileURLToPath(import.meta.url));
+const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
+const ROOT = join(SCRIPT_DIR, "..");
 const POSTERS_CONFIG = join(ROOT, "posters.yaml");
 const INDEX_HTML = join(ROOT, "index.html");
 const POSTER_START_MARKER = "<!-- POSTERS_START -->";

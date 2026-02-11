@@ -9,11 +9,14 @@ index.html                  # Homepage
 avond-4daagse-elst/         # Avond 4Daagse subpage
 uitgaansdag-senioren/       # Uitgaansdag Senioren subpage
 base.css                    # Tailwind source CSS
+posters.yaml                # Poster configuration
 public/
   css/styles.css            # Compiled Tailwind output (do not edit manually)
   nieuws/                   # News images
   ...                       # Other images and assets
-build.js                    # Production build script (inlines CSS, minifies HTML)
+scripts/
+  build.js                  # Production build script (inlines CSS, minifies HTML, optimizes images)
+  generate-posters.js       # Generates poster HTML from posters.yaml
 dist/                       # Production build output
 ```
 

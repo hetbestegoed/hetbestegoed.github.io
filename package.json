@@ -6,8 +6,8 @@
     "start:prod": "npx http-server -a localhost -p 3000 ./dist",
     "css:dev": "npx @tailwindcss/cli -i ./base.css -o ./public/css/styles.css --watch",
     "css:prod": "npx @tailwindcss/cli -i ./base.css -o ./public/css/styles.css --minify",
-    "generate:posters": "node generate-posters.js",
-    "build:prod": "rm -rf dist/ && node generate-posters.js && pnpm run css:prod && mkdir -p dist/ && cp index.html dist/ && cp -R avond-4daagse-elst dist/ && cp -R uitgaansdag-senioren dist/ && cp -R public dist/ && node build.js"
+    "generate:posters": "node scripts/generate-posters.js",
+    "build:prod": "rm -rf dist/ && node scripts/generate-posters.js && pnpm run css:prod && mkdir -p dist/ && cp index.html dist/ && cp -R avond-4daagse-elst dist/ && cp -R uitgaansdag-senioren dist/ && cp -R public dist/ && node scripts/build.js"
   },
   "devDependencies": {
     "@biomejs/biome": "2.0.5",

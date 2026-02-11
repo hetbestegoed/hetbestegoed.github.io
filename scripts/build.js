@@ -23,8 +23,9 @@ import { minify as minifyCss } from "csso";
 import { minify as minifyHtml } from "html-minifier-terser";
 import sharp from "sharp";
 
+const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
+const ROOT = join(SCRIPT_DIR, "..");
 const SOURCE = process.env.BUILD_DIR || "dist";
-const ROOT = dirname(fileURLToPath(import.meta.url));
 
 /**
  * Recursively finds all files with a given extension in a directory.
