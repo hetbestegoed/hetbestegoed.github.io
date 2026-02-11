@@ -1,7 +1,7 @@
 /**
  * Activity generator for hetbestegoed.nl
  *
- * This script reads activity configuration from activities.yaml and generates
+ * This script reads activity configuration from content.yaml and generates
  * the HTML for the activities section in index.html.
  *
  * Usage: node scripts/generate-activities.js
@@ -14,7 +14,7 @@ import yaml from "js-yaml";
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(SCRIPT_DIR, "..");
-const ACTIVITIES_CONFIG = join(ROOT, "activities.yaml");
+const CONTENT_CONFIG = join(ROOT, "content.yaml");
 const INDEX_HTML = join(ROOT, "index.html");
 const ACTIVITIES_START_MARKER = "<!-- ACTIVITIES_START -->";
 const ACTIVITIES_END_MARKER = "<!-- ACTIVITIES_END -->";
@@ -60,7 +60,7 @@ function generateActivitiesHtml(activities) {
  */
 async function generate() {
   // Read YAML configuration
-  const yamlContent = await readFile(ACTIVITIES_CONFIG, "utf-8");
+  const yamlContent = await readFile(CONTENT_CONFIG, "utf-8");
   const config = yaml.load(yamlContent);
   const activities = config.activities || [];
 

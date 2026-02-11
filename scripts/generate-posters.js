@@ -1,10 +1,10 @@
 /**
  * Poster generator for hetbestegoed.nl
  *
- * This script reads poster configuration from posters.yaml and generates
+ * This script reads poster configuration from content.yaml and generates
  * the HTML for the poster section in index.html.
  *
- * Usage: node generate-posters.js
+ * Usage: node scripts/generate-posters.js
  */
 
 import { readFile, writeFile } from "node:fs/promises";
@@ -14,7 +14,7 @@ import yaml from "js-yaml";
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(SCRIPT_DIR, "..");
-const POSTERS_CONFIG = join(ROOT, "posters.yaml");
+const CONTENT_CONFIG = join(ROOT, "content.yaml");
 const INDEX_HTML = join(ROOT, "index.html");
 const POSTER_START_MARKER = "<!-- POSTERS_START -->";
 const POSTER_END_MARKER = "<!-- POSTERS_END -->";
@@ -74,7 +74,7 @@ function generatePostersHtml(posters) {
  */
 async function generate() {
   // Read YAML configuration
-  const yamlContent = await readFile(POSTERS_CONFIG, "utf-8");
+  const yamlContent = await readFile(CONTENT_CONFIG, "utf-8");
   const config = yaml.load(yamlContent);
   const posters = config.posters || [];
 

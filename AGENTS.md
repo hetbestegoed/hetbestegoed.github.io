@@ -9,8 +9,7 @@ index.html                  # Homepage
 avond-4daagse-elst/         # Avond 4Daagse subpage
 uitgaansdag-senioren/       # Uitgaansdag Senioren subpage
 base.css                    # Tailwind source CSS
-posters.yaml                # Poster configuration
-activities.yaml             # Activities configuration
+content.yaml                # Content configuration (posters and activities)
 public/
   css/styles.css            # Compiled Tailwind output (do not edit manually)
   posters/                  # Event poster images
@@ -18,18 +17,22 @@ public/
   ...                       # Other images and assets
 scripts/
   build.js                  # Production build script (inlines CSS, minifies HTML, optimizes images)
-  generate-posters.js       # Generates poster HTML from posters.yaml
-  generate-activities.js    # Generates activities HTML from activities.yaml
+  generate-posters.js       # Generates poster HTML from content.yaml
+  generate-activities.js    # Generates activities HTML from content.yaml
 dist/                       # Production build output
 ```
 
+## Content Configuration
+
+All homepage content (posters and activities) is managed through a single `content.yaml` file.
+
 ## Posters
 
-Posters are event images/flyers displayed in a grid on the homepage. They are managed through a YAML configuration file.
+Posters are event images/flyers displayed in a grid on the homepage.
 
 ### Configuration
 
-Edit `posters.yaml` to add, remove, or reorder posters. The order in the YAML file determines display order.
+Edit the `posters` section in `content.yaml` to add, remove, or reorder posters. The order in the YAML file determines display order.
 
 ```yaml
 posters:
@@ -67,11 +70,11 @@ There are two types:
 
 ## Activities
 
-Activities are recurring events displayed in the "Activiteiten" section. They are managed through a YAML configuration file.
+Activities are recurring events displayed in the "Activiteiten" section.
 
 ### Configuration
 
-Edit `activities.yaml` to add, remove, or reorder activities. The order in the YAML file determines display order.
+Edit the `activities` section in `content.yaml` to add, remove, or reorder activities. The order in the YAML file determines display order.
 
 ```yaml
 activities:

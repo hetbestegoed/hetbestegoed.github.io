@@ -1,0 +1,41 @@
+# Content configuration for Het Bestegoed homepage
+# The order in each section determines the display order on the website
+
+posters:
+  - image: public/posters/music-night-elst.jpg
+    ticketLink: https://stichting-het-bestegoed.tickable.nl/music-night-elst
+    buttonText: Koop kaartje
+
+  - image: public/posters/meezingavond_2026.jpg
+    ticketLink: https://stichting-het-bestegoed.tickable.nl/oud-hollandse-liedjes
+    buttonText: Koop kaartjes
+
+  - image: public/posters/pubquiz.flyer 2026.png
+    ticketLink: https://stichting-het-bestegoed.tickable.nl/pubquiz-voorjaar-2026
+    buttonText: Koop kaartjes
+
+  - image: public/posters/flyer filmavond 1 april.jpg
+
+  - image: public/posters/dans discoavond jeugd.jpg
+
+  - image: public/posters/bingo uitgaansdag.jpg
+
+  - image: public/posters/koffie en kleintjes.jpg
+
+activities:
+  - title: Ouderen Soos
+    image: public/foto_soos.jpg
+    description: Elke donderdagmiddag van 14.00 - 16.30 uur zijn er activiteiten voor ouderen.
+    when: Donderdagmiddag van 14.00 - 16.30
+
+  - title: Dansavond
+    image: public/foto_dans.jpg
+    description: U kunt dansen en even rusten onder een genot van een hapje en drankje entree kosten 5 euro daarbij krijgt u een consumptie.
+    when: Elke eerste zaterdag van de maand 20.00 - 23.00
+    cost: "5 euro"
+
+  - title: Kaartavond
+    image: public/foto_kaartavond.jpg
+    description: ""
+    when: elke tweede en vierde dinsdag van de maand. 19.30
+    cost: "3,50 euro"
