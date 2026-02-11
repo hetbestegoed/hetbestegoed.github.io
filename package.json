@@ -12,7 +12,7 @@
     "build:prod": "rm -rf dist/ && pnpm run generate:content && pnpm run css:prod && mkdir -p dist/ && cp index.html dist/ && cp -R avond-4daagse-elst dist/ && cp -R uitgaansdag-senioren dist/ && cp -R public dist/ && node scripts/build.js"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.0.5",
+    "@biomejs/biome": "2.3.14",
     "@tailwindcss/cli": "^4.1.18",
     "csso": "^5.0.5",
     "html-minifier-terser": "^7.2.0",
