@@ -12,6 +12,7 @@ base.css                    # Tailwind source CSS
 posters.yaml                # Poster configuration
 public/
   css/styles.css            # Compiled Tailwind output (do not edit manually)
+  posters/                  # Event poster images
   nieuws/                   # News images
   ...                       # Other images and assets
 scripts/
@@ -30,11 +31,11 @@ Edit `posters.yaml` to add, remove, or reorder posters. The order in the YAML fi
 
 ```yaml
 posters:
-  - image: public/music-night-elst.jpg
+  - image: public/posters/music-night-elst.jpg
     ticketLink: https://stichting-het-bestegoed.tickable.nl/music-night-elst
     buttonText: Koop kaartje
 
-  - image: public/flyer-without-button.jpg
+  - image: public/posters/flyer-without-button.jpg
 ```
 
 **Fields:**
