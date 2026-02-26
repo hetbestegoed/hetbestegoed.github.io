@@ -1,36 +1,4 @@
-# Het Bestegoed
-
-Static website for Stichting Het Bestegoed built with Tailwind CSS v4.
-
-## Project structure
-
-```
-index.html                  # Homepage
-avond-4daagse-elst/         # Avond 4Daagse subpage
-uitgaansdag-senioren/       # Uitgaansdag Senioren subpage
-base.css                    # Tailwind source CSS
-content.yaml                # Content configuration (posters and activities)
-public/
-  css/styles.css            # Compiled Tailwind output (do not edit manually)
-  posters/                  # Event poster images
-  nieuws/                   # News images
-  ...                       # Other images and assets
-scripts/
-  build.js                  # Production build script (inlines CSS, minifies HTML, optimizes images)
-  generate-posters.js       # Generates poster HTML from content.yaml
-  generate-activities.js    # Generates activities HTML from content.yaml
-dist/                       # Production build output
-```
-
-## Content Configuration
-
-All homepage content (posters and activities) is managed through a single `content.yaml` file.
-
 ## Posters
-
-Posters are event images/flyers displayed in a grid on the homepage.
-
-### Configuration
 
 Edit the `posters` section in `content.yaml` to add, remove, or reorder posters. The order in the YAML file determines display order.
 
@@ -48,31 +16,7 @@ posters:
 - `ticketLink` (optional): URL for ticket purchase
 - `buttonText` (optional): Button text (requires ticketLink)
 
-### Generating HTML
-
-Run `pnpm run generate:posters` to generate poster HTML from the YAML configuration. This happens automatically during `pnpm run build:prod`.
-
-### Styling
-
-Posters have consistent styling:
-- Border: `border-2 border-neutral-300 dark:border-neutral-700`
-- Background: `bg-neutral-300 dark:bg-neutral-700` (hides whitespace in image files)
-- Border radius: `rounded-md`
-
-There are two types:
-
-1. **Posters with ticket buttons**: Have `ticketLink` and `buttonText` in YAML
-   - Wrapped in `<article>` tags with button below image
-   - Button uses `bg-blue-600` with hover states
-
-2. **Posters without buttons**: Only have `image` in YAML
-   - Simple image in a `<div>` container
-
 ## Activities
-
-Activities are recurring events displayed in the "Activiteiten" section.
-
-### Configuration
 
 Edit the `activities` section in `content.yaml` to add, remove, or reorder activities. The order in the YAML file determines display order.
 
@@ -96,39 +40,3 @@ activities:
 - `description` (optional): Description of the activity
 - `when` (required): When the activity takes place
 - `cost` (optional): Cost to participate
-
-### Generating HTML
-
-Run `pnpm run generate:activities` to generate activity HTML from the YAML configuration. This happens automatically during `pnpm run build:prod`.
-
-You can also run `pnpm run generate:content` to regenerate both posters and activities.
-
-## Development
-
-Styling is done with Tailwind CSS v4 utility classes directly in HTML files. The source CSS (`base.css`) is compiled to `public/css/styles.css`.
-
-After adding or changing Tailwind classes in HTML, rebuild the CSS:
-
-```sh
-pnpm run css:dev    # Watch mode (rebuilds on file changes)
-```
-
-To serve locally:
-
-```sh
-pnpm run start:dev  # http://localhost:3000
-```
-
-## Production build
-
-```sh
-pnpm run build:prod
-```
-
-This runs the Tailwind build (minified), copies files to `dist/`, inlines CSS into HTML, and minifies the HTML.
-
-To preview the production build:
-
-```sh
-pnpm run start:prod  # http://localhost:3000 (serves from dist/)
-```
