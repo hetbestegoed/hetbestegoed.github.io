@@ -1,2 +1,46 @@
 [tools]
 node = "24"
+
+[tasks.clean]
+description = "Remove dist directory"
+run = "rm -rf dist/"
+
+[tasks."start:dev"]
+description = "Start local dev server"
+run = "npx http-server -a localhost -p 3000 ."
+
+[tasks."start:prod"]
+description = "Start local prod server from dist"
+run = "npx http-server -a localhost -p 3000 ./dist"
+
+[tasks."css:dev"]
+description = "Watch and compile Tailwind CSS"
+run = "npx @tailwindcss/cli -i ./base.css -o ./public/css/styles.css --watch"
+
+[tasks."css:prod"]
+description = "Compile and minify Tailwind CSS"
+run = "npx @tailwindcss/cli -i ./base.css -o ./public/css/styles.css --minify"
+
+[tasks."generate:posters"]
+description = "Generate poster content"
+run = "node scripts/generate-posters.js"
+
+[tasks."generate:activities"]
+description = "Generate activities content"
+run = "node scripts/generate-activities.js"
+
+[tasks."generate:content"]
+description = "Generate all content"
+depends = ["generate:posters", "generate:activities"]
+
+[tasks."build:prod"]
+description = "Full production build"
+depends = ["clean", "generate:content", "css:prod"]
+run = """
+mkdir -p dist/
+cp index.html dist/
+cp -R avond-4daagse-elst dist/
+cp -R uitgaansdag-senioren dist/
+cp -R public dist/
+node scripts/build.js
+"""
