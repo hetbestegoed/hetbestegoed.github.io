@@ -39,10 +39,17 @@ function generateRouteHtml(route, dag, afstand) {
   return html;
 }
 
-function generateRoutesHtml(routes, afstand) {
-  return routes
-    .map((route, i) => generateRouteHtml(route, i + 1, afstand))
+function generateRoutesHtml(routes, label) {
+  if (!routes.length) return "";
+
+  const items = routes
+    .map((route, i) => generateRouteHtml(route, i + 1, label.toUpperCase()))
     .join("\n");
+
+  return `
+      <h3 class="text-xl pt-5 font-bold">Routes ${label}</h3>
+      <div class="py-2">${items}
+      </div>`;
 }
 
 function generateSponsorsHtml(sponsors) {
@@ -80,13 +87,13 @@ async function generate() {
     html,
     "<!-- ROUTES_5_START -->",
     "<!-- ROUTES_5_END -->",
-    generateRoutesHtml(routes.km5, "5KM"),
+    generateRoutesHtml(routes.km5, "5km"),
   );
   html = replaceMarkers(
     html,
     "<!-- ROUTES_10_START -->",
     "<!-- ROUTES_10_END -->",
-    generateRoutesHtml(routes.km10, "10KM"),
+    generateRoutesHtml(routes.km10, "10km"),
   );
   html = replaceMarkers(
     html,
