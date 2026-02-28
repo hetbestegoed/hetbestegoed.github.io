@@ -11,6 +11,7 @@ run = "npx http-server -a localhost -p 3000 ."
 
 [tasks."start:prod"]
 description = "Start local prod server from dist"
+depends = ["build:prod"]
 run = "npx http-server -a localhost -p 3000 ./dist"
 
 [tasks."css:dev"]
