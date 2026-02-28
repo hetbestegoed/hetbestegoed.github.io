@@ -16,6 +16,11 @@ posters:
 - `ticketLink` (optional): URL for ticket purchase
 - `buttonText` (optional): Button text (requires ticketLink)
 
+**To delete a poster:**
+1. Remove its entry from the `posters` section in `content.yaml`
+2. Run `node scripts/generate-posters.js` (or `mise run generate:posters`)
+3. Delete the image file from `public/posters/`
+
 ## Activities
 
 Edit the `activities` section in `content.yaml` to add, remove, or reorder activities. The order in the YAML file determines display order.

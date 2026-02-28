@@ -16,10 +16,6 @@ posters:
 
   - image: public/posters/flyer filmavond 1 april.jpg
 
-  - image: public/posters/dans discoavond jeugd.jpg
-
-  - image: public/posters/bingo uitgaansdag.jpg
-
   - image: public/posters/koffie en kleintjes.jpg
 
 activities:
@@ -42,16 +38,8 @@ activities:
 
 avond4daagse:
   routes:
-    km5:
-      - doc: "A4D_2025/A4D Elst 2025 Dag 1, 5 km. compleet.docx"
-      - doc: "A4D_2025/A4D Elst 2025 Dag 2, 5 km. compleet.docx"
-      - doc: "A4D_2025/A4D Elst 2025 Dag 3, 5 km. compleet.docx"
-      - doc: "A4D_2025/A4D Elst 2025 dag 4, 5 km compleet.docx"
-    km10:
-      - doc: "A4D_2025/A4D Elst 2025 Dag 1, 9,7 km. compleet.docx"
-      - doc: "A4D_2025/A4D Elst 2025 Dag 2, 10,3 km. compleet.docx"
-      - doc: "A4D_2025/A4D Elst 2025 Dag 3, 10,0 km. compleet.docx"
-      - doc: "A4D_2025/A4D Elst 2025 Dag 4, 8.9 km. compleet.docx"
+    km5: []
+    km10: []
   sponsors:
     - public/sponsoren_a4d/0.jpg
     - public/sponsoren_a4d/1.jpg
