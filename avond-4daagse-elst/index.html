@@ -73,104 +73,52 @@
       Defilé start bij sportpark rond 20.00 uur en gaat via Sportweg, Franseweg, tabaksweg en om het Eiveld tot voor het Bestegoed.
       </p>
       <h3 class="text-xl pt-5 font-bold">Routes 5km</h3>
-      <div id="routes-5" class="py-2"></div>
+      <div id="routes-5" class="py-2">
+        <!-- ROUTES_5_START -->
+        <article>
+          <h3 class="text-l pb-2 font-bold">Dag 1 - 5KM</h3>
+          <a href="/public/documents/A4D_2025/A4D Elst 2025 Dag 1, 5 km. compleet.docx" target="_blank" class="display-block text-blue-600 visited:text-purple-600 focus:underline hover:underline">Routebeschrijving: A4D_2025/A4D Elst 2025 Dag 1, 5 km. compleet.docx</a>
+        </article>
+
+        <article>
+          <h3 class="text-l pb-2 font-bold">Dag 2 - 5KM</h3>
+          <a href="/public/documents/A4D_2025/A4D Elst 2025 Dag 2, 5 km. compleet.docx" target="_blank" class="display-block text-blue-600 visited:text-purple-600 focus:underline hover:underline">Routebeschrijving: A4D_2025/A4D Elst 2025 Dag 2, 5 km. compleet.docx</a>
+        </article>
+
+        <article>
+          <h3 class="text-l pb-2 font-bold">Dag 3 - 5KM</h3>
+          <a href="/public/documents/A4D_2025/A4D Elst 2025 Dag 3, 5 km. compleet.docx" target="_blank" class="display-block text-blue-600 visited:text-purple-600 focus:underline hover:underline">Routebeschrijving: A4D_2025/A4D Elst 2025 Dag 3, 5 km. compleet.docx</a>
+        </article>
+
+        <article>
+          <h3 class="text-l pb-2 font-bold">Dag 4 - 5KM</h3>
+          <a href="/public/documents/A4D_2025/A4D Elst 2025 dag 4, 5 km compleet.docx" target="_blank" class="display-block text-blue-600 visited:text-purple-600 focus:underline hover:underline">Routebeschrijving: A4D_2025/A4D Elst 2025 dag 4, 5 km compleet.docx</a>
+        </article><!-- ROUTES_5_END -->
+      </div>
 
       <h3 class="text-xl pt-5 font-bold">Routes 10km</h3>
-      <div id="routes-10" class="py-2"></div>
+      <div id="routes-10" class="py-2">
+        <!-- ROUTES_10_START -->
+        <article>
+          <h3 class="text-l pb-2 font-bold">Dag 1 - 10KM</h3>
+          <a href="/public/documents/A4D_2025/A4D Elst 2025 Dag 1, 9,7 km. compleet.docx" target="_blank" class="display-block text-blue-600 visited:text-purple-600 focus:underline hover:underline">Routebeschrijving: A4D_2025/A4D Elst 2025 Dag 1, 9,7 km. compleet.docx</a>
+        </article>
 
-      <script>
-        (function () {
-          function createContainer(dag, afstand, afstandmeten_id, doc, index) {
-            var container = document.createElement("article");
-            container.className = "order-" + (index + 1);
+        <article>
+          <h3 class="text-l pb-2 font-bold">Dag 2 - 10KM</h3>
+          <a href="/public/documents/A4D_2025/A4D Elst 2025 Dag 2, 10,3 km. compleet.docx" target="_blank" class="display-block text-blue-600 visited:text-purple-600 focus:underline hover:underline">Routebeschrijving: A4D_2025/A4D Elst 2025 Dag 2, 10,3 km. compleet.docx</a>
+        </article>
 
-            var title = document.createElement("h3");
-            var titleContent = document.createTextNode(
-              "Dag " + dag + " - " + afstand,
-            );
-            title.appendChild(titleContent);
-            title.className = "text-l pb-2 font-bold";
+        <article>
+          <h3 class="text-l pb-2 font-bold">Dag 3 - 10KM</h3>
+          <a href="/public/documents/A4D_2025/A4D Elst 2025 Dag 3, 10,0 km. compleet.docx" target="_blank" class="display-block text-blue-600 visited:text-purple-600 focus:underline hover:underline">Routebeschrijving: A4D_2025/A4D Elst 2025 Dag 3, 10,0 km. compleet.docx</a>
+        </article>
 
-            var link_afstandmeten = createLink(
-              "Bekijk route op afstandmeten",
-              "https://www.afstandmeten.nl/index.php?id=" + afstandmeten_id,
-            );
-            var link_docs = createLink(
-              "Routebeschrijving: " + doc,
-              "/public/documents/" + doc,
-            );
-
-            container.appendChild(title);
-
-            if (afstandmeten_id) {
-              var map = document.createElement("iframe");
-              map.src =
-                "https://www.afstandmeten.nl/embed.php?id=" +
-                afstandmeten_id +
-                "&kmStep=1";
-
-              container.appendChild(map);
-              container.appendChild(link_afstandmeten);
-              container.appendChild(document.createElement("br"));
-            }
-
-            container.appendChild(link_docs);
-
-            return container;
-          }
-          function createLink(text, href) {
-            var content = document.createTextNode(text);
-            var a = document.createElement("a");
-            a.href = href;
-            a.target = "_blank";
-            a.className =
-              "display-block text-blue-600 visited:text-purple-600 focus:underline hover:underline";
-            a.appendChild(content);
-            return a;
-          }
-          function addRoutesToContainer(routes, afstand, container) {
-            for (var i = 0; i < routes.length; i++) {
-              var dag = createContainer(
-                "" + (i + 1),
-                afstand,
-                routes[i].afstandmeten_id,
-                routes[i].doc,
-                i,
-              );
-              container.appendChild(dag);
-            }
-          }
-
-          var $routes_5_container = document.getElementById("routes-5");
-          var $routes_10_container = document.getElementById("routes-10");
-          var routes = {
-            km5: [
-              // { afstandmeten_id: "3710630", doc: "A4D Elst 2024 Dag 1 - 5 km.docx", },
-              // { afstandmeten_id: "3710632", doc: "A4D Elst 2024 Dag 2 - 5 km.docx", },
-              // { afstandmeten_id: "3710631", doc: "A4D Elst 2024 Dag 3 - 5 km.docx", },
-              // { afstandmeten_id: "3710629", doc: "A4D Elst 2024 Dag 4 - 5 km.docx", },
-              { afstandmeten_id: null, doc: "A4D_2025/A4D Elst 2025 Dag 1, 5 km. compleet.docx" },
-              { afstandmeten_id: null, doc: "A4D_2025/A4D Elst 2025 Dag 2, 5 km. compleet.docx" },
-              { afstandmeten_id: null, doc: "A4D_2025/A4D Elst 2025 Dag 3, 5 km. compleet.docx" },
-              { afstandmeten_id: null, doc: "A4D_2025/A4D Elst 2025 dag 4, 5 km compleet.docx" },
-            ],
-            km10: [
-              // { afstandmeten_id: "3710624", doc: "A4D Elst 2024 Dag 1 - 10 km.docx", },
-              // { afstandmeten_id: "3710628", doc: "A4D Elst 2024 Dag 2 - 10 km.docx", },
-              // { afstandmeten_id: "3710627", doc: "A4D Elst 2024 Dag 3 - 10 km.docx", },
-              // { afstandmeten_id: "3710626", doc: "A4D Elst 2024 Dag 4 - 10 km.docx", },
-              { afstandmeten_id: null, doc: "A4D_2025/A4D Elst 2025 Dag 1, 9,7 km. compleet.docx" },
-              { afstandmeten_id: null, doc: "A4D_2025/A4D Elst 2025 Dag 2, 10,3 km. compleet.docx" },
-              { afstandmeten_id: null, doc: "A4D_2025/A4D Elst 2025 Dag 3, 10,0 km. compleet.docx" },
-              { afstandmeten_id: null, doc: "A4D_2025/A4D Elst 2025 Dag 4, 8.9 km. compleet.docx" },
-            ],
-          };
-
-
-          addRoutesToContainer(routes.km5, "5KM", $routes_5_container);
-          addRoutesToContainer(routes.km10, "10KM", $routes_10_container);
-        })();
-      </script>
+        <article>
+          <h3 class="text-l pb-2 font-bold">Dag 4 - 10KM</h3>
+          <a href="/public/documents/A4D_2025/A4D Elst 2025 Dag 4, 8.9 km. compleet.docx" target="_blank" class="display-block text-blue-600 visited:text-purple-600 focus:underline hover:underline">Routebeschrijving: A4D_2025/A4D Elst 2025 Dag 4, 8.9 km. compleet.docx</a>
+        </article><!-- ROUTES_10_END -->
+      </div>
 
       <h2 class="text-xl pt-2 font-bold">Startlocatie</h2>
       <p class="py-2">
@@ -258,45 +206,91 @@
       </p>
 
       <h2 class="text-2xl pt-5 font-bold">Sfeerimpressie</h2>
-      <div id="photos" class="py-2 flex flex-wrap"></div>
-      <script>
-        (function () {
-          function createContainer() {
-            var div = document.createElement("div");
-            div.className = "w-1/4 flex flex-col flex-auto";
-            return div;
-          }
-          var path = "/public/photos-2023/avond-4daagse-elst-2023-";
-          var max_photos = 75;
-          var columns = [
-            createContainer(),
-            createContainer(),
-            createContainer(),
-            createContainer(),
-          ];
-          var $photos_container = document.getElementById("photos");
-          for (var i = 1; i <= max_photos; i++) {
-            var image_path = path + i.toString().padStart(5, "0") + ".jpg";
-            var column = columns[i % columns.length];
-
-            var image = document.createElement("img");
-            image.setAttribute("src", image_path);
-            image.setAttribute("loading", "lazy");
-            image.className = "w-100 align-middle p-1 border-box";
-
-            var link = document.createElement("a");
-            link.setAttribute("href", image_path);
-            link.setAttribute("target", "_blank");
-
-            link.appendChild(image);
-            column.appendChild(link);
-          }
-
-          for (var i = 0, l = columns.length; i < l; i++) {
-            photos.appendChild(columns[i]);
-          }
-        })();
-      </script>
+      <div id="photos" class="py-2 flex flex-wrap">
+        <!-- PHOTOS_START -->        <div class="w-1/4 flex flex-col flex-auto">
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00004.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00004.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00008.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00008.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00012.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00012.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00016.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00016.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00020.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00020.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00024.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00024.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00028.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00028.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00032.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00032.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00036.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00036.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00040.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00040.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00044.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00044.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00048.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00048.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00052.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00052.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00056.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00056.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00060.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00060.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00064.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00064.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00068.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00068.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00072.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00072.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+        </div>
+        <div class="w-1/4 flex flex-col flex-auto">
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00001.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00001.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00005.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00005.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00009.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00009.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00013.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00013.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00017.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00017.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00021.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00021.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00025.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00025.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00029.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00029.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00033.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00033.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00037.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00037.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00041.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00041.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00045.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00045.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00049.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00049.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00053.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00053.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00057.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00057.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00061.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00061.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00065.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00065.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00069.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00069.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00073.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00073.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+        </div>
+        <div class="w-1/4 flex flex-col flex-auto">
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00002.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00002.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00006.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00006.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00010.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00010.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00014.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00014.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00018.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00018.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00022.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00022.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00026.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00026.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00030.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00030.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00034.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00034.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00038.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00038.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00042.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00042.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00046.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00046.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00050.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00050.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00054.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00054.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00058.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00058.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00062.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00062.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00066.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00066.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00070.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00070.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00074.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00074.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+        </div>
+        <div class="w-1/4 flex flex-col flex-auto">
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00003.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00003.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00007.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00007.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00011.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00011.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00015.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00015.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00019.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00019.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00023.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00023.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00027.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00027.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00031.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00031.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00035.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00035.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00039.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00039.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00043.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00043.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00047.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00047.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00051.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00051.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00055.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00055.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00059.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00059.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00063.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00063.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00067.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00067.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00071.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00071.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+          <a href="/public/photos-2023/avond-4daagse-elst-2023-00075.jpg" target="_blank"><img src="/public/photos-2023/avond-4daagse-elst-2023-00075.jpg" loading="lazy" class="w-100 align-middle p-1 border-box" /></a>
+        </div><!-- PHOTOS_END -->
+      </div>
 
       <h2 class="text-2xl pt-5 font-bold">Sponsoren</h2>
       <p class="pt-2">
@@ -316,13 +310,13 @@
       <div class="pt-6 sm:flex sm:space-x-4 space-y-4 sm:space-y-0">
         <!-- <div class="sm:w-1/2 flex space-y-4 flex-col items-center"> -->
         <div class="md:columns-2 mb-5 md:gap-5 space-y-5">
-          <img src="/public/sponsoren_a4d/0.jpg" />
+          <!-- SPONSORS_START -->          <img src="/public/sponsoren_a4d/0.jpg" />
           <img src="/public/sponsoren_a4d/1.jpg" />
           <img src="/public/sponsoren_a4d/2.jpg" />
           <img src="/public/sponsoren_a4d/3.jpg" />
           <img src="/public/sponsoren_a4d/4.jpg" />
           <img src="/public/sponsoren_a4d/5.jpg" />
-          <img src="/public/sponsoren_a4d/6.jpg" />
+          <img src="/public/sponsoren_a4d/6.jpg" /><!-- SPONSORS_END -->
         </div>
       </div>
     </div>

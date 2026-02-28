@@ -39,3 +39,100 @@ activities:
     description: ""
     when: elke tweede en vierde dinsdag van de maand. 19.30
     cost: "3,50 euro"
+
+avond4daagse:
+  routes:
+    km5:
+      - doc: "A4D_2025/A4D Elst 2025 Dag 1, 5 km. compleet.docx"
+      - doc: "A4D_2025/A4D Elst 2025 Dag 2, 5 km. compleet.docx"
+      - doc: "A4D_2025/A4D Elst 2025 Dag 3, 5 km. compleet.docx"
+      - doc: "A4D_2025/A4D Elst 2025 dag 4, 5 km compleet.docx"
+    km10:
+      - doc: "A4D_2025/A4D Elst 2025 Dag 1, 9,7 km. compleet.docx"
+      - doc: "A4D_2025/A4D Elst 2025 Dag 2, 10,3 km. compleet.docx"
+      - doc: "A4D_2025/A4D Elst 2025 Dag 3, 10,0 km. compleet.docx"
+      - doc: "A4D_2025/A4D Elst 2025 Dag 4, 8.9 km. compleet.docx"
+  sponsors:
+    - public/sponsoren_a4d/0.jpg
+    - public/sponsoren_a4d/1.jpg
+    - public/sponsoren_a4d/2.jpg
+    - public/sponsoren_a4d/3.jpg
+    - public/sponsoren_a4d/4.jpg
+    - public/sponsoren_a4d/5.jpg
+    - public/sponsoren_a4d/6.jpg
+  photos:
+    - public/photos-2023/avond-4daagse-elst-2023-00001.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00002.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00003.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00004.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00005.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00006.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00007.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00008.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00009.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00010.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00011.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00012.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00013.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00014.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00015.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00016.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00017.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00018.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00019.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00020.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00021.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00022.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00023.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00024.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00025.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00026.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00027.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00028.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00029.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00030.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00031.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00032.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00033.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00034.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00035.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00036.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00037.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00038.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00039.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00040.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00041.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00042.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00043.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00044.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00045.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00046.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00047.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00048.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00049.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00050.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00051.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00052.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00053.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00054.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00055.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00056.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00057.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00058.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00059.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00060.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00061.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00062.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00063.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00064.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00065.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00066.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00067.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00068.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00069.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00070.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00071.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00072.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00073.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00074.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00075.jpg

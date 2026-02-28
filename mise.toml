@@ -29,9 +29,13 @@ run = "node scripts/generate-posters.js"
 description = "Generate activities content"
 run = "node scripts/generate-activities.js"
 
+[tasks."generate:avond4daagse"]
+description = "Generate avond4daagse content"
+run = "node scripts/generate-avond4daagse.js"
+
 [tasks."generate:content"]
 description = "Generate all content"
-depends = ["generate:posters", "generate:activities"]
+depends = ["generate:posters", "generate:activities", "generate:avond4daagse"]
 
 [tasks."build:prod"]
 description = "Full production build"

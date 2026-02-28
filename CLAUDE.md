@@ -40,3 +40,26 @@ activities:
 - `description` (optional): Description of the activity
 - `when` (required): When the activity takes place
 - `cost` (optional): Cost to participate
+
+## Avond 4Daagse
+
+Edit the `avond4daagse` section in `content.yaml` to update routes, sponsors, and photos. Run `node scripts/generate-avond4daagse.js` (or `mise run generate:avond4daagse`) after editing.
+
+```yaml
+avond4daagse:
+  routes:
+    km5:
+      - doc: "A4D_2025/A4D Elst 2025 Dag 1, 5 km. compleet.docx"
+        afstandmeten_id: "3710630"  # optional
+    km10:
+      - doc: "A4D_2025/A4D Elst 2025 Dag 1, 9,7 km. compleet.docx"
+  sponsors:
+    - public/sponsoren_a4d/0.jpg
+  photos:
+    - public/photos-2023/avond-4daagse-elst-2023-00001.jpg
+    - public/photos-2023/avond-4daagse-elst-2023-00002.jpg
+```
+
+**Route fields:**
+- `doc` (required): Filename under `public/documents/`
+- `afstandmeten_id` (optional): ID for afstandmeten.nl embed and link
