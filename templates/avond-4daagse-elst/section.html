@@ -152,18 +152,11 @@
   </p>
 
   <h2 class="text-2xl pt-5 font-bold">Sfeerimpressie</h2>
-  <div id="photos" class="py-2 flex flex-wrap">
-    {% set col_size = data.photos | length / 4 %}
-    {% for col in range(end=4) %}
-    <div class="w-1/4 flex flex-col flex-auto">
-      {% for photo in data.photos %}
-      {% if loop.index0 % 4 == col %}
-      <a href="/{{ photo.path }}" target="_blank">
-        <img src="/{{ photo.path }}" loading="lazy" class="w-100 align-middle p-1 border-box" />
-      </a>
-      {% endif %}
-      {% endfor %}
-    </div>
+  <div id="photos" class="py-2 columns-3 gap-2">
+    {% for photo in data.photos %}
+    <a href="/{{ photo.path }}" target="_blank">
+      <img src="/{{ photo.path }}" loading="lazy" class="w-full mb-2" />
+    </a>
     {% endfor %}
   </div>
 
