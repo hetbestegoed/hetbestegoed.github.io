@@ -1,0 +1,27 @@
+{% macro section_hero(image_url, title, subtitle, image_alt="", cta_text="", cta_url="") %}
+<div class="pb-2">
+  <a href="/" class="text-blue-600 focus:underline hover:underline">
+    &laquo; Terug naar de hoofdpagina
+  </a>
+</div>
+<div class="py-20 rounded-md shadow-md overflow-clip relative text-center mb-5">
+  <div
+    class="absolute bg-cover brightness-50 bg-neutral-900 w-full h-full inset-0 pointer-events-none -z-10"
+    style="background-image: url('{{ image_url }}')"
+    {% if image_alt %}data-alt="{{ image_alt }}"{% endif %}
+  ></div>
+  <div>
+    <h1 class="text-neutral-50 font-extrabold text-4xl drop-shadow-md">
+      {{ title }}
+    </h1>
+    <p class="px-10 py-5 text-neutral-50 drop-shadow-md mb-5 text-2xl font-bold">
+      {{ subtitle }}
+    </p>
+    {% if cta_text and cta_url %}
+    <a href="{{ cta_url }}" class="inline-block px-6 py-3 bg-blue-600 text-neutral-50 font-bold rounded-md hover:bg-blue-700 focus:underline">
+      {{ cta_text }}
+    </a>
+    {% endif %}
+  </div>
+</div>
+{% endmacro section_hero %}

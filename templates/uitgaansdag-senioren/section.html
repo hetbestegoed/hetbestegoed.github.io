@@ -1,28 +1,11 @@
 {% extends "base.html" %}
+{% import "macros/hero.html" as macros %}
 
 {% block title %}{{ section.title }} | Het Bestegoed{% endblock title %}
 
 {% block content %}
 <div class="container max-w-3xl mx-auto py-20 px-5 sm:px-10">
-  <div class="pb-2">
-    <a href="/" class="text-blue-600 focus:underline hover:underline">
-      &laquo; Terug naar de hoofdpagina
-    </a>
-  </div>
-  <div class="py-20 rounded-md shadow-md overflow-clip relative text-center mb-5">
-    <div
-      class="absolute bg-cover brightness-50 bg-neutral-900 w-full h-full inset-0 pointer-events-none -z-10 bg-[url('/uitgaansdag-senioren.jpg')]"
-      data-alt="Photo by Ash Gerlach"
-    ></div>
-    <div>
-      <h1 class="text-neutral-50 font-extrabold text-4xl drop-shadow-md">
-        {{ section.title }}
-      </h1>
-      <p class="px-10 py-5 text-neutral-50 drop-shadow-md mb-5 text-2xl font-bold">
-        {{ section.extra.subtitle }}
-      </p>
-    </div>
-  </div>
+  {{ macros::section_hero(image_url="/uitgaansdag-senioren.jpg", title=section.title, subtitle=section.extra.subtitle, image_alt="Photo by Ash Gerlach") }}
 
   <div class="prose max-w-none">
     {{ section.content | safe }}
