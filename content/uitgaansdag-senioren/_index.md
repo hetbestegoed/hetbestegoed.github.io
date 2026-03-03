@@ -1,6 +1,6 @@
 +++
 title = "Uitgaansdag Senioren Elst"
-template = "page.html"
+template = "hero-section.html"
 
 [extra]
 subtitle = "De jaarlijkse uitgaansdag senioren wordt dit jaar in september georganiseerd."

@@ -1,6 +1,6 @@
 +++
 title = "Avond 4Daagse Elst 2025"
-template = "page.html"
+template = "hero-section.html"
 
 [extra]
 subtitle = "De avondvierdaagse in Elst zal plaatsvinden van 9 t/m 12 juni 2026."
