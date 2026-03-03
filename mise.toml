@@ -21,8 +21,12 @@ description = "Remove public directory"
 run = "rm -rf public/"
 
 [tasks."start:dev"]
-description = "Start local dev server with live reload"
-run = "zola serve"
+description = "Start local dev server with live reload and CSS watcher"
+run = """
+trap 'kill $(jobs -p)' EXIT
+npx @tailwindcss/cli -i ./base.css -o ./static/css/styles.css --watch &
+zola serve
+"""
 
 [tasks."css:dev"]
 description = "Watch and compile Tailwind CSS"
