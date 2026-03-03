@@ -28,10 +28,6 @@ npx @tailwindcss/cli -i ./base.css -o ./static/css/styles.css --watch &
 zola serve
 """
 
-[tasks."css:dev"]
-description = "Watch and compile Tailwind CSS"
-run = "npx @tailwindcss/cli -i ./base.css -o ./static/css/styles.css --watch"
-
 [tasks."css:prod"]
 description = "Compile and minify Tailwind CSS"
 run = "npx @tailwindcss/cli -i ./base.css -o ./static/css/styles.css --minify"
