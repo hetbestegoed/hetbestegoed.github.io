@@ -1,8 +1,6 @@
 +++
 title = "Pubquiz 29 november 2023"
 date = 2023-12-04
-render = false
-
 [extra]
 publication_date = "4 december 2023"
 images = ["nieuws/pubquiz-2023-1.jpg", "nieuws/pubquiz-2023-2.jpg", "nieuws/pubquiz-2023-3.jpg"]
