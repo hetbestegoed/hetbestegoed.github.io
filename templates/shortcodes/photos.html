@@ -1,8 +1,6 @@
 {% set data = load_data(path="data/avond-4daagse-elst.toml") %}
-<div class="not-prose columns-3 gap-2 py-2">
+<div class="not-prose columns-4 gap-2 py-2">
   {% for photo in data.photos %}
-  <a href="/{{ photo.path }}" target="_blank">
     <img src="/{{ photo.path }}" loading="lazy" class="w-full mb-2" />
-  </a>
   {% endfor %}
 </div>
