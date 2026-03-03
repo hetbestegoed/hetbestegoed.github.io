@@ -91,7 +91,7 @@ op met onze stichting het emailadres
 De 1e editie van de avondvierdaagse te Elst werd mede mogelijk gemaakt
 door:
 
-{{ sponsors() }}
+{{ sponsors(path="data/avond-4daagse-elst.toml") }}
 
 ## Sfeerimpressie
 
