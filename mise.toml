@@ -12,6 +12,10 @@ biome format --write .
 taplo format
 """
 
+[tasks."generate:maps"]
+description = "Generate static map images for all locations"
+run = "node scripts/generate-maps.js"
+
 [tasks.clean]
 description = "Remove public directory"
 run = "rm -rf public/"

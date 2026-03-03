@@ -30,9 +30,9 @@ tabaksweg en om het Eiveld tot voor het Bestegoed.
 
 ## Startlocatie
 
-De start- en finish locatie is [Het Eiveld, Tabaksweg 20, 3921 CM Elst](https://www.openstreetmap.org/#map=19/51.987506/5.494291).
+De start- en finish locatie is [Het Eiveld, Tabaksweg 20, 3921 CM Elst](https://www.openstreetmap.org/?mlat=51.987478&mlon=5.494756&zoom=18).
 
-![Locatie Tabaksweg 20 Elst op OpenStreetMap](/locatie-kaart.png)
+[![Startlocatie Het Eiveld Elst op OpenStreetMap](/avond4daagse-locatie.png)](https://www.openstreetmap.org/?mlat=51.987478&mlon=5.494756&zoom=18)
 
 ## Inschrijven
 
