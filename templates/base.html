@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="nl" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+    <title>{% block title %}Het Bestegoed{% endblock title %}</title>
+  </head>
+  <body class="antialiased text-neutral-500 dark:text-neutral-400 bg-white dark:bg-neutral-900{% block body_class %}{% endblock body_class %}">
+    {% block content %}{% endblock content %}
+  </body>
+</html>

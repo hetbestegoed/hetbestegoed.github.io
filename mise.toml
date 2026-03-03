@@ -1,51 +1,28 @@
 [tools]
 node = "24"
+zola = "0.22.1"
 
 [tasks.clean]
-description = "Remove dist directory"
-run = "rm -rf dist/"
+description = "Remove public directory"
+run = "rm -rf public/"
 
 [tasks."start:dev"]
-description = "Start local dev server"
-run = "npx http-server -a localhost -p 3000 ."
-
-[tasks."start:prod"]
-description = "Start local prod server from dist"
-depends = ["build:prod"]
-run = "npx http-server -a localhost -p 3000 ./dist"
+description = "Start local dev server with live reload"
+run = "zola serve"
 
 [tasks."css:dev"]
 description = "Watch and compile Tailwind CSS"
-run = "npx @tailwindcss/cli -i ./base.css -o ./public/css/styles.css --watch"
+run = "npx @tailwindcss/cli -i ./base.css -o ./static/css/styles.css --watch"
 
 [tasks."css:prod"]
 description = "Compile and minify Tailwind CSS"
-run = "npx @tailwindcss/cli -i ./base.css -o ./public/css/styles.css --minify"
-
-[tasks."generate:posters"]
-description = "Generate poster content"
-run = "node scripts/generate-posters.js"
-
-[tasks."generate:activities"]
-description = "Generate activities content"
-run = "node scripts/generate-activities.js"
-
-[tasks."generate:avond4daagse"]
-description = "Generate avond4daagse content"
-run = "node scripts/generate-avond4daagse.js"
-
-[tasks."generate:content"]
-description = "Generate all content"
-depends = ["generate:posters", "generate:activities", "generate:avond4daagse"]
+run = "npx @tailwindcss/cli -i ./base.css -o ./static/css/styles.css --minify"
 
 [tasks."build:prod"]
 description = "Full production build"
-depends = ["clean", "generate:content", "css:prod"]
+depends = ["clean", "css:prod"]
 run = """
-mkdir -p dist/
-cp index.html dist/
-cp -R avond-4daagse-elst dist/
-cp -R uitgaansdag-senioren dist/
-cp -R public dist/
-node scripts/build.js
+zola build
+BUILD_DIR=public node scripts/build.js
+cp CNAME public/
 """

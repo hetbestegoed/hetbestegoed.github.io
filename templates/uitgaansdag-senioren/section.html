@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}{{ section.title }} | Het Bestegoed{% endblock title %}
+
+{% block content %}
+<div class="container max-w-3xl mx-auto py-20 px-5 sm:px-10">
+  <div class="pb-2">
+    <a href="/" class="text-blue-600 focus:underline hover:underline">
+      &laquo; Terug naar de hoofdpagina
+    </a>
+  </div>
+  <div class="py-20 rounded-md shadow-md overflow-clip relative text-center">
+    <div
+      class="absolute bg-cover brightness-50 bg-neutral-900 w-full h-full inset-0 pointer-events-none -z-10 bg-[url('/uitgaansdag-senioren.jpg')]"
+      data-alt="Photo by Ash Gerlach"
+    ></div>
+    <div>
+      <h1 class="text-neutral-50 font-extrabold text-4xl drop-shadow-md">
+        {{ section.title }}
+      </h1>
+      <p class="px-10 py-5 text-neutral-50 drop-shadow-md mb-5 text-2xl font-bold">
+        {{ section.extra.subtitle }}
+      </p>
+    </div>
+  </div>
+
+  <div class="space-y-2 pt-10">
+    {{ section.content | safe }}
+  </div>
+
+  <h2 class="text-2xl pt-5 font-bold">Sponsoren</h2>
+  <div class="pt-6 sm:flex sm:space-x-4 space-y-4 sm:space-y-0">
+    {% for sponsor in section.extra.sponsors %}
+    <div class="sm:w-1/2 flex space-y-4 flex-col items-center">
+      <img class="w-full" src="/{{ sponsor.image }}" alt="Logo van de sponsor: {{ sponsor.name }}" />
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}
