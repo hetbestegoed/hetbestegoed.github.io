@@ -1,5 +1,5 @@
 +++
-title = "Avond 4Daagse Elst 2025"
+title = "Avond 4Daagse Elst"
 template = "hero-page.html"
 
 [extra]
