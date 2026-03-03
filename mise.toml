@@ -2,6 +2,14 @@
 node = "24"
 zola = "0.22.1"
 pnpm = "10.28"
+taplo = "latest"
+
+[tasks.format]
+description = "Format JS/JSON with Biome and TOML with Taplo"
+run = """
+pnpm biome format --write .
+taplo format
+"""
 
 [tasks.clean]
 description = "Remove public directory"
