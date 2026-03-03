@@ -1,6 +1,7 @@
 [tools]
 node = "24"
 zola = "0.22.1"
+pnpm = "10.28"
 
 [tasks.clean]
 description = "Remove public directory"
