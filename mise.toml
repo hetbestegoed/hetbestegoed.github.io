@@ -1,8 +1,8 @@
 [tools]
 node = "24"
-zola = "0.22.1"
+zola = "0.22"
 pnpm = "10.28"
-taplo = "latest"
+taplo = "0.10"
 
 [tasks.format]
 description = "Format JS/JSON with Biome and TOML with Taplo"

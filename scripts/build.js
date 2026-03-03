@@ -53,22 +53,22 @@ async function findFiles(dir, ext) {
  * @param {string} filePath - Absolute path to the image file
  */
 async function optimizeImage(filePath) {
-  const ext = filePath.toLowerCase().split('.').pop();
+  const ext = filePath.toLowerCase().split(".").pop();
 
-  if (ext === 'jpg' || ext === 'jpeg') {
+  if (ext === "jpg" || ext === "jpeg") {
     await sharp(filePath)
       .jpeg({ quality: 85, progressive: true, mozjpeg: true })
-      .toFile(filePath + '.tmp');
+      .toFile(filePath + ".tmp");
     await unlink(filePath);
-    await writeFile(filePath, await readFile(filePath + '.tmp'));
-    await unlink(filePath + '.tmp');
-  } else if (ext === 'png') {
+    await writeFile(filePath, await readFile(filePath + ".tmp"));
+    await unlink(filePath + ".tmp");
+  } else if (ext === "png") {
     await sharp(filePath)
       .png({ quality: 85, compressionLevel: 9 })
-      .toFile(filePath + '.tmp');
+      .toFile(filePath + ".tmp");
     await unlink(filePath);
-    await writeFile(filePath, await readFile(filePath + '.tmp'));
-    await unlink(filePath + '.tmp');
+    await writeFile(filePath, await readFile(filePath + ".tmp"));
+    await unlink(filePath + ".tmp");
   }
 }
 
@@ -115,7 +115,7 @@ async function build() {
   const sourceDir = join(ROOT, SOURCE);
 
   // Optimize images
-  console.log('Optimizing images...');
+  console.log("Optimizing images...");
   const jpgFiles = await findFiles(sourceDir, ".jpg");
   const jpegFiles = await findFiles(sourceDir, ".jpeg");
   const pngFiles = await findFiles(sourceDir, ".png");

@@ -1,10 +1,7 @@
-sponsors = [
-  {
-    image = "sponsoren_uitgaansdag/sponsor-gemeente-rhenen.png",
-    name = "Gemeente Rhenen"
-  },
-  {
-    image = "sponsoren_uitgaansdag/sponsor-van-verseveld-infra.jpg",
-    name = "van Verseveld Infra"
-  },
-]
+[[sponsors]]
+image = "sponsoren_uitgaansdag/sponsor-gemeente-rhenen.png"
+name = "Gemeente Rhenen"
+
+[[sponsors]]
+image = "sponsoren_uitgaansdag/sponsor-van-verseveld-infra.jpg"
+name = "van Verseveld Infra"
