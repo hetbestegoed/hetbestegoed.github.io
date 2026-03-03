@@ -9,7 +9,7 @@
       &laquo; Terug naar de hoofdpagina
     </a>
   </div>
-  <div class="py-20 rounded-md shadow-md overflow-clip relative text-center">
+  <div class="py-20 rounded-md shadow-md overflow-clip relative text-center mb-5">
     <div
       class="absolute bg-cover brightness-50 bg-neutral-900 w-full h-full inset-0 pointer-events-none -z-10 bg-[url('/uitgaansdag-senioren.jpg')]"
       data-alt="Photo by Ash Gerlach"
@@ -24,17 +24,8 @@
     </div>
   </div>
 
-  <div class="space-y-2 pt-10">
+  <div class="prose max-w-none">
     {{ section.content | safe }}
-  </div>
-
-  <h2 class="text-2xl pt-5 font-bold">Sponsoren</h2>
-  <div class="pt-6 sm:flex sm:space-x-4 space-y-4 sm:space-y-0">
-    {% for sponsor in section.extra.sponsors %}
-    <div class="sm:w-1/2 flex space-y-4 flex-col items-center">
-      <img class="w-full" src="/{{ sponsor.image }}" alt="Logo van de sponsor: {{ sponsor.name }}" />
-    </div>
-    {% endfor %}
   </div>
 </div>
 {% endblock content %}

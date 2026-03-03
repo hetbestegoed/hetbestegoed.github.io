@@ -4,14 +4,6 @@ template = "uitgaansdag-senioren/section.html"
 
 [extra]
 subtitle = "De jaarlijkse uitgaansdag senioren wordt dit jaar in september georganiseerd."
-
-[[extra.sponsors]]
-image = "sponsor-gemeente-rhenen.png"
-name = "Gemeente Rhenen"
-
-[[extra.sponsors]]
-image = "sponsor-van-verseveld-infra.jpg"
-name = "van Verseveld Infra"
 +++
 
 Helaas kregen we vorig jaar tijdens het seniorenuitje, te horen dat het
@@ -60,4 +52,8 @@ Vriendelijke groet,
 
 Stichting Bestegoed
 
+## Sponsoren
+
 De uitgaansdag is mede mogelijk gemaakt door:
+
+{{ sponsors(path="data/uitgaansdag-senioren.toml") }}

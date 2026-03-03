@@ -1,6 +1,10 @@
-{% set data = load_data(path="data/avond-4daagse-elst.toml") %}
+{% if path %}
+  {% set data = load_data(path=path) %}
+{% else %}
+  {% set data = load_data(path="data/avond-4daagse-elst.toml") %}
+{% endif %}
 <div class="columns-3 gap-4 pt-4">
   {% for sponsor in data.sponsors %}
-  <img src="/{{ sponsor.image }}" />
+  <img src="/{{ sponsor.image }}" {% if sponsor.name %}alt="Logo van de sponsor: {{ sponsor.name }}"{% endif %} />
   {% endfor %}
 </div>
