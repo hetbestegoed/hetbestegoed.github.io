@@ -1,1 +1,1 @@
-You MUST delete the image in `/public` if an image is removed from the HTML or `content.yaml`.
+You MUST delete the image in `/static` if an image is removed from the any place.
