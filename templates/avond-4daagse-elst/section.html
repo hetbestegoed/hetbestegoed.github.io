@@ -3,15 +3,13 @@
 {% block title %}{{ section.title }} | Het Bestegoed{% endblock title %}
 
 {% block content %}
-{% set data = load_data(path="data/avond-4daagse-elst.toml") %}
-
 <div class="container max-w-3xl mx-auto py-20 px-5 sm:px-10">
   <div class="pb-2">
     <a href="/" class="text-blue-600 focus:underline hover:underline">
       &laquo; Terug naar de hoofdpagina
     </a>
   </div>
-  <div class="py-20 rounded-md shadow-md overflow-clip relative text-center">
+  <div class="py-20 rounded-md shadow-md overflow-clip relative text-center mb-5">
     <div
       class="absolute bg-cover brightness-50 bg-neutral-900 w-full h-full inset-0 pointer-events-none -z-10 bg-[url('/avondvierdaagse.jpg')]"
     ></div>
@@ -25,162 +23,8 @@
     </div>
   </div>
 
-  {{ section.content | safe }}
-
-  <h2 class="text-2xl pt-5 font-bold">Routes</h2>
-  <p class="pt-2">
-    Er kunnen twee afstanden gelopen worden, 5 km en 10 km kilometer. Elke
-    avond wordt er in een ander gedeelte van onze directe omgeving
-    gewandeld.
-  </p>
-  <p class="pt-2">
-    <b>Starttijden:</b><br/>
-    10 km van 18.00-18.18 uur, op vrijdag van 17.45-18.00 uur<br/>
-    5 km van 18.15-18.30 uur
-  </p>
-  <p class="pt-2">
-    Defilé start bij sportpark rond 20.00 uur en gaat via Sportweg, Franseweg, tabaksweg en om het Eiveld tot voor het Bestegoed.
-  </p>
-
-  {% if data.routes.km5 %}
-  <h3 class="font-bold pt-5">5 km</h3>
-  {% for route in data.routes.km5 %}
-  <div class="pt-2">
-    <iframe
-      src="https://www.afstandmeten.nl/index.php?id={{ route.afstandmeten_id }}&amp;embed=1"
-      width="100%"
-      height="400"
-      frameborder="0"
-    ></iframe>
-    <a
-      href="/documents/{{ route.doc }}"
-      class="text-blue-600 visited:text-purple-600 focus:underline hover:underline"
-      >Routebeschrijving downloaden</a
-    >
-  </div>
-  {% endfor %}
-  {% endif %}
-
-  {% if data.routes.km10 %}
-  <h3 class="font-bold pt-5">10 km</h3>
-  {% for route in data.routes.km10 %}
-  <div class="pt-2">
-    <iframe
-      src="https://www.afstandmeten.nl/index.php?id={{ route.afstandmeten_id }}&amp;embed=1"
-      width="100%"
-      height="400"
-      frameborder="0"
-    ></iframe>
-    <a
-      href="/documents/{{ route.doc }}"
-      class="text-blue-600 visited:text-purple-600 focus:underline hover:underline"
-      >Routebeschrijving downloaden</a
-    >
-  </div>
-  {% endfor %}
-  {% endif %}
-
-  <h2 class="text-xl pt-2 font-bold">Startlocatie</h2>
-  <p class="py-2">
-    De start- en finish locatie is Het Eiveld, Tabaksweg 20, 3921 CM Elst
-  </p>
-  <div class="pt-4">
-    <a href="https://www.openstreetmap.org/?mlat=51.987485&mlon=5.495610&zoom=18" target="_blank" rel="noopener">
-      <img src="/locatie-kaart.png" width="680" height="300" alt="Locatie Tabaksweg 20 Elst op OpenStreetMap" />
-    </a>
-  </div>
-
-  <h2 class="text-2xl pt-5 font-bold">Inschrijven</h2>
-  <p class="pt-2">
-    De kosten voor deelname bedragen &euro; 6,- per persoon bij voorinschrijving
-    en &euro; 8,- per persoon bij inschrijving bij de start aan de inschrijftafel
-    in het Bestegoed.
-  </p>
-  <p class="pt-2">
-    Heb je een vraag hierover, neem dan contact met ons op via het
-    e-mailadres:
-    <a
-      class="text-blue-600 visited:text-purple-600 focus:underline hover:underline"
-      href="mailto:info@hetbestegoed.nl"
-      >info@hetbestegoed.nl</a
-    >
-  </p>
-  <h3 class="font-bold pt-5">Groepen</h3>
-  <p class="pt-2">
-    Scholen en verenigingen ontvangen via e-mail informatie over het
-    inschrijven voor de editie .
-  </p>
-  <h3 class="font-bold pt-5">Individuele lopers</h3>
-  <p class="pt-2">
-    Vooraf online inschrijven zal medio april mogelijk zijn en voor de start
-    aan de inschrijftafel bij Het Bestegoed. De inschrijvingen worden gedaan
-    onder auspiciën en verantwoordelijkheid van de Koninklijke Wandelbond
-    Nederland. De reglementen en regelingen van de KWBN zijn van toepassing
-    op de Elsterse Avondvierdaagse. Het startbewijs ontvang je op de eerste
-    wandelavond. Kom deze tijdig voor de start op de eerste avond afhalen
-    bij een van de tafels.
-  </p>
-  <h3 class="font-bold pt-5">Stichting Het Bestegoed zoekt vrijwilligers</h3>
-  <p class="pt-2">
-    Vrijwilligers zijn onmisbaar bij een evenement als de avondvierdaagse
-    Elst waaraan meer dan 300 wandelaars zullen deelnemen.
-  </p>
-  <p class="pt-2">Gevraagde vaardigheden en competenties vrijwilligers</p>
-  <p class="pt-2">
-    Enthousiast, beschikbaar tijdens de 4 wandelavonden en eventueel in de
-    aanloop naar de avondvierdaagse, kunnen samenwerken in het
-    vrijwilligersteam, 18+.
-  </p>
-  <p class="pt-2">
-    Wil je meer weten of vrijwilliger worden bij avondvierdaagse?
-  </p>
-  <p class="pt-2">
-    Mail ons dan via
-    <a
-      class="text-blue-600 visited:text-purple-600 focus:underline hover:underline"
-      href="mailto:info@hetbestegoed.nl"
-      >info@hetbestegoed.nl</a
-    >, dan nemen we zo snel mogelijk contact op.
-  </p>
-  <h3 class="font-bold pt-5">Korte omschrijving van de organisatie</h3>
-  <p class="pt-2">
-    Stichting Het Bestegoed is het bestuur die sinds 2023 de avondvierdaagse
-    Elst voor het eerst deze eeuw heeft georganiseerd. Met vrijwilligers
-    regelen we de parcoursen, de start/finish en de inschrijvingen. De
-    sponsoren zorgen voor de traktaties onderweg en de gehele aankleding van
-    het spektakel.
-  </p>
-
-  <h2 class="text-2xl pt-5 font-bold">Sfeerimpressie</h2>
-  <div id="photos" class="py-2 columns-3 gap-2">
-    {% for photo in data.photos %}
-    <a href="/{{ photo.path }}" target="_blank">
-      <img src="/{{ photo.path }}" loading="lazy" class="w-full mb-2" />
-    </a>
-    {% endfor %}
-  </div>
-
-  <h2 class="text-2xl pt-5 font-bold">Sponsoren</h2>
-  <p class="pt-2">
-    Wilt u de avondvierdaagse te Elst steunen middels sponsoring of wilt u
-    informatie over de verschillende sponsormogelijkheden? Neem dan contact
-    op met onze stichting het emailadres
-    <a
-      class="text-blue-600 visited:text-purple-600 focus:underline hover:underline"
-      href="mailto:info@hetbestegoed.nl"
-      >info@hetbestegoed.nl</a
-    >.
-  </p>
-  <p class="pt-2">
-    De 1e editie van de avondvierdaagse te Elst werd mede mogelijk gemaakt
-    door:
-  </p>
-  <div class="pt-6">
-    <div class="md:columns-2 mb-5 md:gap-5 space-y-5">
-      {% for sponsor in data.sponsors %}
-      <img src="/{{ sponsor.image }}" />
-      {% endfor %}
-    </div>
+  <div class="prose max-w-none">
+    {{ section.content | safe }}
   </div>
 </div>
 {% endblock content %}
