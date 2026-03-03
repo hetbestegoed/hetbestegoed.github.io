@@ -1,6 +1,7 @@
 +++
 title = "Pubquiz najaar 2024"
 date = 2025-01-20
+render = false
 
 [extra]
 publication_date = "20 januari 2025"
