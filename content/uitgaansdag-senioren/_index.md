@@ -1,9 +1,11 @@
 +++
 title = "Uitgaansdag Senioren Elst"
-template = "uitgaansdag-senioren/section.html"
+template = "page.html"
 
 [extra]
 subtitle = "De jaarlijkse uitgaansdag senioren wordt dit jaar in september georganiseerd."
+hero_image = "/uitgaansdag-senioren.jpg"
+image_alt = "Photo by Ash Gerlach"
 +++
 
 Helaas kregen we vorig jaar tijdens het seniorenuitje, te horen dat het

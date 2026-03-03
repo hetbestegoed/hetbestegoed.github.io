@@ -1,9 +1,10 @@
 +++
 title = "Avond 4Daagse Elst 2025"
-template = "avond-4daagse-elst/section.html"
+template = "page.html"
 
 [extra]
 subtitle = "De avondvierdaagse in Elst zal plaatsvinden van 9 t/m 12 juni 2026."
+hero_image = "/avondvierdaagse.jpg"
 +++
 
 # Loop jij weer mee of voor de eerste keer?
