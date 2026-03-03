@@ -43,8 +43,7 @@ function tileCoords(lat, lon, zoom) {
   const x = Math.floor(((lon + 180) / 360) * n);
   const latRad = (lat * Math.PI) / 180;
   const y = Math.floor(
-    ((1 - Math.log(Math.tan(latRad) + 1 / Math.cos(latRad)) / Math.PI) / 2) *
-      n,
+    ((1 - Math.log(Math.tan(latRad) + 1 / Math.cos(latRad)) / Math.PI) / 2) * n,
   );
   return { x, y, n };
 }
@@ -64,11 +63,15 @@ function fetchTile(x, y, zoom) {
   return new Promise((resolve, reject) => {
     const url = `https://tile.openstreetmap.org/${zoom}/${x}/${y}.png`;
     const chunks = [];
-    get(url, { headers: { "User-Agent": "hetbestegoed.nl map generator" } }, (res) => {
-      res.on("data", (c) => chunks.push(c));
-      res.on("end", () => resolve(Buffer.concat(chunks)));
-      res.on("error", reject);
-    }).on("error", reject);
+    get(
+      url,
+      { headers: { "User-Agent": "hetbestegoed.nl map generator" } },
+      (res) => {
+        res.on("data", (c) => chunks.push(c));
+        res.on("end", () => resolve(Buffer.concat(chunks)));
+        res.on("error", reject);
+      },
+    ).on("error", reject);
   });
 }
 
@@ -92,8 +95,14 @@ async function generateMap({ lat, lon, zoom, output }) {
   const markerY = py + TILE_SIZE;
 
   // Crop region centred on the marker
-  const left = Math.max(0, Math.min(Math.round(markerX - OUT_W / 2), totalW - OUT_W));
-  const top = Math.max(0, Math.min(Math.round(markerY - OUT_H / 2), totalH - OUT_H));
+  const left = Math.max(
+    0,
+    Math.min(Math.round(markerX - OUT_W / 2), totalW - OUT_W),
+  );
+  const top = Math.max(
+    0,
+    Math.min(Math.round(markerY - OUT_H / 2), totalH - OUT_H),
+  );
 
   const tileComposites = grid.map(({ dx, dy, buf }) => ({
     input: buf,
@@ -102,7 +111,12 @@ async function generateMap({ lat, lon, zoom, output }) {
   }));
 
   const stitched = await sharp({
-    create: { width: totalW, height: totalH, channels: 3, background: "#ffffff" },
+    create: {
+      width: totalW,
+      height: totalH,
+      channels: 3,
+      background: "#ffffff",
+    },
   })
     .composite(tileComposites)
     .png()
