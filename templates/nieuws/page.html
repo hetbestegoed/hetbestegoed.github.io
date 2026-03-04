@@ -1,23 +1,19 @@
-{% extends "base.html" %}
-
-{% block title %}{{ page.title }} | Het Bestegoed{% endblock title %}
-
-{% block content %}
+{% extends "base.html" %} {% block title %}{{ page.title }} | Het Bestegoed{% endblock title %} {%
+block content %}
 <div class="container max-w-3xl mx-auto py-20 px-5 sm:px-10">
   <a href="/" class="text-blue-600 hover:underline">← Terug</a>
-  <article class="rounded-md shadow-md border-2 border-solid border-neutral-100 dark:border-neutral-700 p-10 text-left mt-10">
+  <article
+    class="rounded-md shadow-md border-2 border-solid border-neutral-100 dark:border-neutral-700 p-10 text-left mt-10"
+  >
     <h1 class="dark:text-neutral-200 text-neutral-800 font-extrabold text-2xl tracking-tight mb-5">
       {{ page.title }}
     </h1>
-    {{ page.content | safe }}
-    {% if page.extra.images %}
-    {% set img_count = page.extra.images | length %}
-    {% set remainder = 3 - img_count %}
+    {{ page.content | safe }} {% if page.extra.images %} {% set img_count = page.extra.images |
+    length %} {% set remainder = 3 - img_count %}
     <div class="flex justify-between md:space-x-2 space-y-2 flex-col md:flex-row w-full my-5">
       {% for img in page.extra.images %}
       <img src="/{{ img }}" class="w-full" />
-      {% endfor %}
-      {% for i in range(end=remainder) %}
+      {% endfor %} {% for i in range(end=remainder) %}
       <div class="w-full"></div>
       {% endfor %}
     </div>

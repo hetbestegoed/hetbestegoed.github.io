@@ -126,9 +126,7 @@ async function build() {
 
   // Load all CSS files into memory
   const cssFiles = await findFiles(sourceDir, ".css");
-  const cssContents = await Promise.all(
-    cssFiles.map((file) => readFile(file, "utf-8")),
-  );
+  const cssContents = await Promise.all(cssFiles.map((file) => readFile(file, "utf-8")));
   const baseCss = cssContents.join("");
   console.log(`Loaded ${cssFiles.length} CSS file(s)`);
 

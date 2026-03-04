@@ -1,8 +1,16 @@
-{% if path %}
-  {% set data = load_data(path=path) %}
+{% if path %} {% set data = load_data(path=path) %}
 <div class="columns-3 gap-4 pt-4">
   {% for sponsor in data.sponsors %}
-  <img src="/{{ sponsor.image }}" {% if sponsor.name %}alt="Logo van de sponsor: {{ sponsor.name }}"{% endif %} />
+  <img
+    src="/{{ sponsor.image }}"
+    {%
+    if
+    sponsor.name
+    %}alt="Logo van de sponsor: {{ sponsor.name }}"
+    {%
+    endif
+    %}
+  />
   {% endfor %}
 </div>
 {% endif %}

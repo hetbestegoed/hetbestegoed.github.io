@@ -22,6 +22,7 @@ avond wordt er in een ander gedeelte van onze directe omgeving
 gewandeld.
 
 ### Starttijden:
+
 - **10 km** van 18.00-18.18 uur, op vrijdag van 17.45-18.00 uur
 - **5 km** van 18.15-18.30 uur
 

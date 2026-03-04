@@ -1,10 +1,6 @@
-{% extends "base.html" %}
-
-{% block body_class %} text-center{% endblock body_class %}
-
-{% block content %}
-{% set home = load_data(path="data/home.toml") %}
-{% set nieuws = get_section(path="nieuws/_index.md") %}
+{% extends "base.html" %} {% block body_class %} text-center{% endblock body_class %} {% block
+content %} {% set home = load_data(path="data/home.toml") %} {% set nieuws =
+get_section(path="nieuws/_index.md") %}
 
 <div class="container max-w-3xl mx-auto py-20 px-5 sm:px-10">
   <article class="pb-10">
@@ -14,9 +10,10 @@
   </article>
 
   <div class="mb-5 grid grid-cols-1 md:grid-cols-2 gap-5">
-    {% for poster in home.posters %}
-    {% if poster.ticket_link %}
-    <article class="rounded-md overflow-clip border-2 border-neutral-300 dark:border-neutral-700 bg-neutral-300 dark:bg-neutral-700">
+    {% for poster in home.posters %} {% if poster.ticket_link %}
+    <article
+      class="rounded-md overflow-clip border-2 border-neutral-300 dark:border-neutral-700 bg-neutral-300 dark:bg-neutral-700"
+    >
       <div class="overflow-clip">
         <img class="w-full" src="/{{ poster.image }}" />
       </div>
@@ -33,12 +30,13 @@
     </article>
     {% else %}
     <div class="mb-5">
-      <div class="rounded-md overflow-clip w-full border-2 border-neutral-300 dark:border-neutral-700 bg-neutral-300 dark:bg-neutral-700">
+      <div
+        class="rounded-md overflow-clip w-full border-2 border-neutral-300 dark:border-neutral-700 bg-neutral-300 dark:bg-neutral-700"
+      >
         <img class="w-full" src="/{{ poster.image }}" />
       </div>
     </div>
-    {% endif %}
-    {% endfor %}
+    {% endif %} {% endfor %}
   </div>
 
   <article class="py-20 rounded-md shadow-md overflow-clip relative mt-10">
@@ -50,8 +48,8 @@
         Avond 4Daagse Elst 2025
       </h1>
       <p class="px-10 py-5 text-neutral-50 drop-shadow-md mb-5">
-        De avondvierdaagse in Elst zal plaatsvinden van 9 t/m
-        12 juni 2026. De loopafstanden zijn 5 en 10 km.
+        De avondvierdaagse in Elst zal plaatsvinden van 9 t/m 12 juni 2026. De loopafstanden zijn 5
+        en 10 km.
       </p>
       <div
         class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-3 px-4 sm:px-0"
@@ -76,7 +74,8 @@
         Uitgaansdag Senioren Elst
       </h1>
       <p class="px-10 py-5 text-neutral-50 drop-shadow-md mb-5">
-        De jaarlijkse uitgaansdag senioren wordt in 2026 op de eerste woensdag van september georganiseerd.
+        De jaarlijkse uitgaansdag senioren wordt in 2026 op de eerste woensdag van september
+        georganiseerd.
       </p>
       <div
         class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-3 px-4 sm:px-0"
@@ -102,15 +101,11 @@
       >
         <img src="/{{ activity.image }}" width="200" height="200" />
         <div class="px-5 py-3">
-          <h1 class="text-2xl text-neutral-800 dark:text-neutral-200">
-            {{ activity.title }}
-          </h1>
+          <h1 class="text-2xl text-neutral-800 dark:text-neutral-200">{{ activity.title }}</h1>
           {% if activity.description %}
           <p class="py-3">{{ activity.description }}</p>
           {% endif %}
-          <p>
-            <span class="font-bold">Wanneer:</span> {{ activity.when }}
-          </p>
+          <p><span class="font-bold">Wanneer:</span> {{ activity.when }}</p>
           {% if activity.cost %}
           <p><span class="font-bold">Kosten:</span> {{ activity.cost }}.</p>
           {% endif %}
@@ -129,18 +124,17 @@
     <article
       class="rounded-md shadow-md border-2 border-solid border-neutral-100 dark:border-neutral-700 p-10 text-left mb-10"
     >
-      <h1 class="dark:text-neutral-200 text-neutral-800 font-extrabold text-2xl tracking-tight mb-5">
+      <h1
+        class="dark:text-neutral-200 text-neutral-800 font-extrabold text-2xl tracking-tight mb-5"
+      >
         {{ item.title }}
       </h1>
-      {{ item.content | safe }}
-      {% if item.extra.images %}
-      {% set img_count = item.extra.images | length %}
-      {% set remainder = 3 - img_count %}
+      {{ item.content | safe }} {% if item.extra.images %} {% set img_count = item.extra.images |
+      length %} {% set remainder = 3 - img_count %}
       <div class="flex justify-between md:space-x-2 space-y-2 flex-col md:flex-row w-full my-5">
         {% for img in item.extra.images %}
         <img src="/{{ img }}" class="w-full" />
-        {% endfor %}
-        {% for i in range(end=remainder) %}
+        {% endfor %} {% for i in range(end=remainder) %}
         <div class="w-full"></div>
         {% endfor %}
       </div>
@@ -157,12 +151,11 @@
       Over
     </h1>
     <p class="mt-6 text-lg max-w-3xl mx-auto">
-      De stichting heeft ten doel: Het faciliteren van een horecavoorziening
-      binnen multifunctioneel gebouw (dorpshuis) "Het Bestegoed", gelegen
-      aan de Tabaksweg 20 te Elst, gemeente Rhenen, bedoeld voor alle gasten
-      en gebruikers van het multifunctioneel gebouw. De stichting tracht
-      haar doel onder meer te verwezenlijken door het stimuleren van
-      activiteiten van recreatieve, sportieve en sociaal-culturele aard.
+      De stichting heeft ten doel: Het faciliteren van een horecavoorziening binnen multifunctioneel
+      gebouw (dorpshuis) "Het Bestegoed", gelegen aan de Tabaksweg 20 te Elst, gemeente Rhenen,
+      bedoeld voor alle gasten en gebruikers van het multifunctioneel gebouw. De stichting tracht
+      haar doel onder meer te verwezenlijken door het stimuleren van activiteiten van recreatieve,
+      sportieve en sociaal-culturele aard.
     </p>
     <p class="mt-6 text-lg max-w-3xl mx-auto">
       Het bestuur bestaat uit:<br />
@@ -192,8 +185,17 @@
       <span class="font-bold">Adres:</span> Tabaksweg 20, Elst (Utrecht)<br />
     </p>
     <div class="pb-2 pt-10">
-      <a href="https://www.openstreetmap.org/?mlat=51.987485&mlon=5.495610&zoom=18" target="_blank" rel="noopener">
-        <img src="/locatie-kaart.png" width="680" height="300" alt="Locatie Tabaksweg 20 Elst op OpenStreetMap" />
+      <a
+        href="https://www.openstreetmap.org/?mlat=51.987485&mlon=5.495610&zoom=18"
+        target="_blank"
+        rel="noopener"
+      >
+        <img
+          src="/locatie-kaart.png"
+          width="680"
+          height="300"
+          alt="Locatie Tabaksweg 20 Elst op OpenStreetMap"
+        />
       </a>
     </div>
   </div>

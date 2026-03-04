@@ -7,7 +7,9 @@
     <link rel="stylesheet" type="text/css" href="/css/styles.css" />
     <title>{% block title %}Het Bestegoed{% endblock title %}</title>
   </head>
-  <body class="antialiased text-neutral-500 dark:text-neutral-400 bg-white dark:bg-neutral-900{% block body_class %}{% endblock body_class %}">
+  <body
+    class="antialiased text-neutral-500 dark:text-neutral-400 bg-white dark:bg-neutral-900{% block body_class %}{% endblock body_class %}"
+  >
     {% block content %}{% endblock content %}
   </body>
 </html>
