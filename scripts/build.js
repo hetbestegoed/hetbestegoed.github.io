@@ -25,7 +25,7 @@ import sharp from "sharp";
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(SCRIPT_DIR, "..");
-const SOURCE = process.env.BUILD_DIR || "dist";
+const SOURCE = process.env.BUILD_DIR || "public";
 
 /**
  * Recursively finds all files with a given extension in a directory.
