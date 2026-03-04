@@ -32,7 +32,7 @@ jobs:
           cache: "pnpm"
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --prod
 
       # Build
       - run: pnpm exec @tailwindcss/cli -i ./base.css -o ./static/css/styles.css --minify

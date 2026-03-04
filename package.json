@@ -1,12 +1,15 @@
 {
   "name": "tailwind",
   "type": "module",
-  "devDependencies": {
+  "dependencies": {
     "@tailwindcss/cli": "^4.2.1",
     "@tailwindcss/typography": "^0.5.19",
     "csso": "^5.0.5",
     "html-minifier-terser": "^7.2.0",
     "sharp": "^0.34.5",
     "tailwindcss": "^4.2.1"
+  },
+  "devDependencies": {
+    "oxfmt": "^0.36.0"
   }
 }
