@@ -1,5 +1,4 @@
 import sharp from "sharp";
-import { createWriteStream } from "fs";
 import { get } from "https";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
