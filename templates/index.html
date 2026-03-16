@@ -15,7 +15,7 @@ get_section(path="nieuws/_index.md") %}
       class="rounded-md overflow-clip border-2 border-neutral-300 dark:border-neutral-700 bg-neutral-300 dark:bg-neutral-700"
     >
       <div class="overflow-clip">
-        <img class="w-full" src="/{{ poster.image }}" />
+        <img class="w-full" src="/{{ poster.image }}" alt="" aria-hidden="true" />
       </div>
       <div class="text-center py-5">
         <a
@@ -33,7 +33,7 @@ get_section(path="nieuws/_index.md") %}
       <div
         class="rounded-md overflow-clip w-full border-2 border-neutral-300 dark:border-neutral-700 bg-neutral-300 dark:bg-neutral-700"
       >
-        <img class="w-full" src="/{{ poster.image }}" />
+        <img class="w-full" src="/{{ poster.image }}" alt="" aria-hidden="true" />
       </div>
     </div>
     {% endif %} {% endfor %}
@@ -99,7 +99,7 @@ get_section(path="nieuws/_index.md") %}
       <article
         class="rounded-md shadow-md overflow-clip sm:flex text-left border-2 border-solid border-neutral-100 dark:border-neutral-700"
       >
-        <img src="/{{ activity.image }}" width="200" height="200" />
+        <img src="/{{ activity.image }}" alt="{{ activity.title }}" width="200" height="200" />
         <div class="px-5 py-3">
           <h1 class="text-2xl text-neutral-800 dark:text-neutral-200">{{ activity.title }}</h1>
           {% if activity.description %}
@@ -133,7 +133,7 @@ get_section(path="nieuws/_index.md") %}
       length %} {% set remainder = 3 - img_count %}
       <div class="flex justify-between md:space-x-2 space-y-2 flex-col md:flex-row w-full my-5">
         {% for img in item.extra.images %}
-        <img src="/{{ img }}" class="w-full" />
+        <img src="/{{ img }}" alt="" aria-hidden="true" class="w-full" />
         {% endfor %} {% for i in range(end=remainder) %}
         <div class="w-full"></div>
         {% endfor %}

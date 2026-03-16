@@ -3,13 +3,7 @@
   {% for sponsor in data.sponsors %}
   <img
     src="/{{ sponsor.image }}"
-    {%
-    if
-    sponsor.name
-    %}alt="Logo van de sponsor: {{ sponsor.name }}"
-    {%
-    endif
-    %}
+    alt="{% if sponsor.name %}Logo van de sponsor: {{ sponsor.name }}{% endif %}"
   />
   {% endfor %}
 </div>

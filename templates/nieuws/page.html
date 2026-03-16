@@ -12,7 +12,7 @@ block content %}
     length %} {% set remainder = 3 - img_count %}
     <div class="flex justify-between md:space-x-2 space-y-2 flex-col md:flex-row w-full my-5">
       {% for img in page.extra.images %}
-      <img src="/{{ img }}" class="w-full" />
+      <img src="/{{ img }}" alt="" aria-hidden="true" class="w-full" />
       {% endfor %} {% for i in range(end=remainder) %}
       <div class="w-full"></div>
       {% endfor %}
