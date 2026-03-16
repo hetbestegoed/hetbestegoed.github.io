@@ -58,6 +58,11 @@ function fetchTile(x, y, zoom) {
     const url = `https://tile.openstreetmap.org/${zoom}/${x}/${y}.png`;
     const chunks = [];
     get(url, { headers: { "User-Agent": "hetbestegoed.nl map generator" } }, (res) => {
+      if (res.statusCode !== 200) {
+        res.resume();
+        reject(new Error(`tile ${zoom}/${x}/${y} returned HTTP ${res.statusCode}`));
+        return;
+      }
       res.on("data", (c) => chunks.push(c));
       res.on("end", () => resolve(Buffer.concat(chunks)));
       res.on("error", reject);
