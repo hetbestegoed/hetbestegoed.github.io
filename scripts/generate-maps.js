@@ -1,7 +1,7 @@
 import sharp from "sharp";
-import { get } from "https";
-import { join, dirname } from "path";
-import { fileURLToPath } from "url";
+import { get } from "node:https";
+import { join, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const STATIC = join(ROOT, "static");
