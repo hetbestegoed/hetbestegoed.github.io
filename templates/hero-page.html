@@ -28,6 +28,8 @@ default(value="") %}
       {% if cta_text and cta_url %}
       <a
         href="{{ cta_url }}"
+        target="_blank"
+        rel="noopener noreferrer"
         class="inline-block px-6 py-3 bg-blue-600 text-neutral-50 font-bold rounded-md hover:bg-blue-700 focus:underline"
       >
         {{ cta_text }}
