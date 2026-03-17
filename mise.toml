@@ -15,17 +15,17 @@ run = "node scripts/generate-maps.js"
 description = "Remove public directory"
 run = "rm -rf public/"
 
-[tasks."start:dev"]
-description = "Start local dev server with live reload and CSS watcher"
-run = """
-trap 'kill $(jobs -p)' EXIT
-npx @tailwindcss/cli -i ./base.css -o ./static/css/styles.css --watch &
-zola serve
-"""
+[tasks."start:zola"]
+description = "Start Zola dev server with live reload"
+run = "zola serve"
+
+[tasks."start:css"]
+description = "Start Tailwind CSS watcher"
+run = "pnpm exec tailwindcss -i ./base.css -o ./static/css/styles.css --watch"
 
 [tasks."css:prod"]
 description = "Compile and minify Tailwind CSS"
-run = "npx @tailwindcss/cli -i ./base.css -o ./static/css/styles.css --minify"
+run = "pnpm exec tailwindcss -i ./base.css -o ./static/css/styles.css --minify"
 
 [tasks."build:prod"]
 description = "Full production build"
