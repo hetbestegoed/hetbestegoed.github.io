@@ -35,7 +35,7 @@ jobs:
         run: pnpm install --prod --frozen-lockfile
 
       # Build
-      - run: pnpm exec @tailwindcss/cli -i ./base.css -o ./static/css/styles.css --minify
+      - run: pnpm exec tailwindcss -i ./base.css -o ./static/css/styles.css --minify
       - run: zola build
       - run: node scripts/build.js
       - run: cp CNAME ./public
