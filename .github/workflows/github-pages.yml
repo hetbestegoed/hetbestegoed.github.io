@@ -1,38 +1,50 @@
-# https://jekyllrb.com/docs/continuous-integration/github-actions/
 name: Build and deploy site to GitHub Pages
 on:
   push:
     branches:
-      - master
+      - main
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
 jobs:
   github-pages:
     runs-on: ubuntu-latest
     steps:
       # Prepare
-      - uses: actions/checkout@master
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+
+      - name: Setup Zola
+        uses: taiki-e/install-action@edba51d32f66935a112c0516fec65a13d420cbc6 # v2
         with:
-          node-version: "22"
-          cache: "npm"
-      # Caching
-      - uses: actions/cache@v2
-        id: npm_cache
+          tool: zola@0.22.1
+
+      - uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061 # v4
         with:
-          path: ./node_modules
-          key: ${{ runner.os}}-npm-${{ hashFiles('package-lock.json') }}
-      # Dependencies
-      - name: Install NPM dependencies
-        if: steps.npm_cache.outputs.cache-hit != 'true'
-        run: npm ci --ignore-scripts --no-audit --no-fund --legacy-peer-deps
+          version: "10.28"
+
+      - uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6
+        with:
+          node-version: "24"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --prod --frozen-lockfile
+
       # Build
-      - run: npm run build:prod
-      - run: cp CNAME ./dist
-      # Publish
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - run: pnpm exec @tailwindcss/cli -i ./base.css -o ./static/css/styles.css --minify
+      - run: zola build
+      - run: node scripts/build.js
+      - run: cp CNAME ./public
+
+      # Deploy
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          force_orphan: true
-          user_name: "github-actions[bot]"
-          user_email: "github-actions[bot]@users.noreply.github.com"
+          path: ./public
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

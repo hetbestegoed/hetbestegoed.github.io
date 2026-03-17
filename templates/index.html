@@ -1,0 +1,215 @@
+{% extends "base.html" %} {% block body_class %} text-center{% endblock body_class %} {% block
+content %} {% set home = load_data(path="data/home.toml") %} {% set nieuws =
+get_section(path="nieuws/_index.md") %}
+
+<div class="bg-amber-400 text-neutral-900 text-center px-5 py-3">
+  <strong>Melding:</strong> de Hollandse meezing avond is geannuleerd.
+</div>
+
+<div class="container max-w-3xl mx-auto py-20 px-5 sm:px-10">
+  <article class="pb-10">
+    <h1 class="dark:text-neutral-200 text-neutral-800 font-extrabold text-4xl tracking-tight">
+      Het Bestegoed
+    </h1>
+  </article>
+
+  <div class="mb-5 grid grid-cols-1 md:grid-cols-2 gap-5">
+    {% for poster in home.posters %} {% if poster.ticket_link %}
+    <article
+      class="rounded-md overflow-clip border-2 border-neutral-300 dark:border-neutral-700 bg-neutral-300 dark:bg-neutral-700"
+    >
+      <div class="overflow-clip">
+        <img class="w-full" src="/{{ poster.image }}" alt="" aria-hidden="true" />
+      </div>
+      <div class="text-center py-5">
+        <a
+          href="{{ poster.ticket_link }}"
+          target="_blank"
+          rel="nofollow noopener noreferrer"
+          class="bg-blue-600 inline-block px-5 py-2 rounded-md text-white border-2 border-blue-600 hover:bg-blue-700 hover:border-blue-700 dark:hover:bg-blue-500 dark:hover:border-blue-500 uppercase"
+        >
+          {{ poster.button_text }}
+        </a>
+      </div>
+    </article>
+    {% else %}
+    <div class="mb-5">
+      <div
+        class="rounded-md overflow-clip w-full border-2 border-neutral-300 dark:border-neutral-700 bg-neutral-300 dark:bg-neutral-700"
+      >
+        <img class="w-full" src="/{{ poster.image }}" alt="" aria-hidden="true" />
+      </div>
+    </div>
+    {% endif %} {% endfor %}
+  </div>
+
+  <article class="py-20 rounded-md shadow-md overflow-clip relative mt-10">
+    <div
+      class="absolute bg-cover brightness-50 bg-neutral-900 w-full h-full inset-0 pointer-events-none -z-10 bg-[url('/avondvierdaagse.jpg')]"
+    ></div>
+    <div>
+      <h1 class="text-neutral-50 font-extrabold text-4xl drop-shadow-md">
+        Avond 4Daagse Elst 2026
+      </h1>
+      <p class="px-10 py-5 text-neutral-50 drop-shadow-md mb-5">
+        De avondvierdaagse in Elst zal plaatsvinden van 9 t/m 12 juni 2026. De loopafstanden zijn 5
+        en 10 km.
+      </p>
+      <div
+        class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-3 px-4 sm:px-0"
+      >
+        <a
+          href="/avond-4daagse-elst/"
+          class="bg-none display-block px-5 py-2 rounded-md text-white border-2 border-white hover:bg-neutral-900 hover:text-white hover:border-neutral-900"
+        >
+          Lees meer
+        </a>
+        <a
+          href="https://kwbn.tixxy.nl/nl/avond4daagse-elst-ut-2026"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-white display-block px-5 py-2 rounded-md text-neutral-900 border-2 border-white hover:bg-neutral-900 hover:text-white hover:border-neutral-900"
+        >
+          Koop hier je kaartje
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <article class="py-20 rounded-md shadow-md overflow-clip relative mt-5">
+    <div
+      class="absolute bg-cover brightness-50 bg-neutral-900 w-full h-full inset-0 pointer-events-none -z-10 bg-[url('/uitgaansdag-senioren.jpg')]"
+      data-alt="Photo by Ash Gerlach"
+    ></div>
+    <div>
+      <h1 class="text-neutral-50 font-extrabold text-4xl drop-shadow-md">
+        Uitgaansdag Senioren Elst
+      </h1>
+      <p class="px-10 py-5 text-neutral-50 drop-shadow-md mb-5">
+        De jaarlijkse uitgaansdag senioren wordt in 2026 op de eerste woensdag van september
+        georganiseerd.
+      </p>
+      <div
+        class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-3 px-4 sm:px-0"
+      >
+        <a
+          href="/uitgaansdag-senioren/"
+          class="bg-none display-block px-5 py-2 rounded-md text-white border-2 border-white hover:bg-neutral-900 hover:text-white hover:border-neutral-900"
+        >
+          Lees meer
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <div class="pt-20">
+    <h2 class="dark:text-neutral-200 text-neutral-800 font-extrabold text-3xl tracking-tight mb-10">
+      Activiteiten
+    </h2>
+    <div class="flex flex-col space-y-5">
+      {% for activity in home.activities %}
+      <article
+        class="rounded-md shadow-md overflow-clip sm:flex text-left border-2 border-solid border-neutral-100 dark:border-neutral-700"
+      >
+        <img src="/{{ activity.image }}" alt="{{ activity.title }}" width="200" height="200" />
+        <div class="px-5 py-3">
+          <h1 class="text-2xl text-neutral-800 dark:text-neutral-200">{{ activity.title }}</h1>
+          {% if activity.description %}
+          <p class="py-3">{{ activity.description }}</p>
+          {% endif %}
+          <p><span class="font-bold">Wanneer:</span> {{ activity.when }}</p>
+          {% if activity.cost %}
+          <p><span class="font-bold">Kosten:</span> {{ activity.cost }}.</p>
+          {% endif %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="pt-20">
+    <h2 class="dark:text-neutral-200 text-neutral-800 font-extrabold text-3xl tracking-tight mb-10">
+      Nieuws
+    </h2>
+
+    {% for item in nieuws.pages %}
+    <article
+      class="rounded-md shadow-md border-2 border-solid border-neutral-100 dark:border-neutral-700 p-10 text-left mb-10"
+    >
+      <h1
+        class="dark:text-neutral-200 text-neutral-800 font-extrabold text-2xl tracking-tight mb-5"
+      >
+        {{ item.title }}
+      </h1>
+      {{ item.content | safe }} {% if item.extra.images %} {% set img_count = item.extra.images |
+      length %} {% set remainder = 3 - img_count %}
+      <div class="flex justify-between md:space-x-2 space-y-2 flex-col md:flex-row w-full my-5">
+        {% for img in item.extra.images %}
+        <img src="/{{ img }}" alt="" aria-hidden="true" class="w-full" />
+        {% endfor %} {% for i in range(end=remainder) %}
+        <div class="w-full"></div>
+        {% endfor %}
+      </div>
+      {% endif %}
+      <div class="text-s dark:text-neutral-600 text-neutral-400">
+        Publicatie op {{ item.extra.publication_date }}
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+
+  <div class="pt-20">
+    <h1 class="dark:text-neutral-200 text-neutral-800 font-extrabold text-4xl tracking-tight">
+      Over
+    </h1>
+    <p class="mt-6 text-lg max-w-3xl mx-auto">
+      De stichting heeft ten doel: Het faciliteren van een horecavoorziening binnen multifunctioneel
+      gebouw (dorpshuis) "Het Bestegoed", gelegen aan de Tabaksweg 20 te Elst, gemeente Rhenen,
+      bedoeld voor alle gasten en gebruikers van het multifunctioneel gebouw. De stichting tracht
+      haar doel onder meer te verwezenlijken door het stimuleren van activiteiten van recreatieve,
+      sportieve en sociaal-culturele aard.
+    </p>
+    <p class="mt-6 text-lg max-w-3xl mx-auto">
+      Het bestuur bestaat uit:<br />
+      <span class="font-bold">Voorzitter:</span> Gert van Burken<br />
+      <span class="font-bold">Penningmeester:</span> Adriaan Hakkert<br />
+      <span class="font-bold">Secretaris:</span> Rob Ratsma<br />
+    </p>
+  </div>
+
+  <div class="pt-20">
+    <h1 class="dark:text-neutral-200 text-neutral-800 font-extrabold text-4xl tracking-tight">
+      Contact
+    </h1>
+    <p class="mt-6 text-lg max-w-3xl mx-auto">
+      <span class="font-bold">E-mail:</span>
+      <a
+        class="text-blue-600 visited:text-purple-600 focus:underline hover:underline"
+        href="mailto:info@hetbestegoed.nl"
+        >info@hetbestegoed.nl</a
+      ><br />
+      <span class="font-bold">Telefoon:</span>
+      <a
+        class="text-blue-600 visited:text-purple-600 focus:underline hover:underline"
+        href="tel:+31648961533"
+        >06 48 96 15 33</a
+      ><br />
+      <span class="font-bold">Adres:</span> Tabaksweg 20, Elst (Utrecht)<br />
+    </p>
+    <div class="pb-2 pt-10">
+      <a
+        href="https://www.openstreetmap.org/?mlat=51.987485&mlon=5.495610&zoom=18"
+        target="_blank"
+        rel="noopener"
+      >
+        <img
+          src="/locatie-kaart.png"
+          width="680"
+          height="300"
+          alt="Locatie Tabaksweg 20 Elst op OpenStreetMap"
+        />
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock content %}

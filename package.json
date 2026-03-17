@@ -1,14 +1,15 @@
 {
   "name": "tailwind",
   "type": "module",
-  "devDependencies": {
-    "@biomejs/biome": "2.3.14",
-    "@tailwindcss/cli": "^4.1.18",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.2.1",
+    "@tailwindcss/typography": "^0.5.19",
     "csso": "^5.0.5",
     "html-minifier-terser": "^7.2.0",
-    "http-server": "^14.1.1",
-    "js-yaml": "^4.1.1",
     "sharp": "^0.34.5",
-    "tailwindcss": "^4.1.18"
+    "tailwindcss": "^4.2.1"
+  },
+  "devDependencies": {
+    "oxfmt": "^0.36.0"
   }
 }

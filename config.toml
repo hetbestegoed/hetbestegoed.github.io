@@ -1,0 +1,5 @@
+base_url = "https://hetbestegoed.nl"
+title = "Het Bestegoed"
+default_language = "nl"
+compile_sass = false
+generate_feeds = false

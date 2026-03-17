@@ -25,7 +25,7 @@ import sharp from "sharp";
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(SCRIPT_DIR, "..");
-const SOURCE = process.env.BUILD_DIR || "dist";
+const SOURCE = process.env.BUILD_DIR || "public";
 
 /**
  * Recursively finds all files with a given extension in a directory.
@@ -53,22 +53,22 @@ async function findFiles(dir, ext) {
  * @param {string} filePath - Absolute path to the image file
  */
 async function optimizeImage(filePath) {
-  const ext = filePath.toLowerCase().split('.').pop();
+  const ext = filePath.toLowerCase().split(".").pop();
 
-  if (ext === 'jpg' || ext === 'jpeg') {
+  if (ext === "jpg" || ext === "jpeg") {
     await sharp(filePath)
       .jpeg({ quality: 85, progressive: true, mozjpeg: true })
-      .toFile(filePath + '.tmp');
+      .toFile(filePath + ".tmp");
     await unlink(filePath);
-    await writeFile(filePath, await readFile(filePath + '.tmp'));
-    await unlink(filePath + '.tmp');
-  } else if (ext === 'png') {
+    await writeFile(filePath, await readFile(filePath + ".tmp"));
+    await unlink(filePath + ".tmp");
+  } else if (ext === "png") {
     await sharp(filePath)
       .png({ quality: 85, compressionLevel: 9 })
-      .toFile(filePath + '.tmp');
+      .toFile(filePath + ".tmp");
     await unlink(filePath);
-    await writeFile(filePath, await readFile(filePath + '.tmp'));
-    await unlink(filePath + '.tmp');
+    await writeFile(filePath, await readFile(filePath + ".tmp"));
+    await unlink(filePath + ".tmp");
   }
 }
 
@@ -115,7 +115,7 @@ async function build() {
   const sourceDir = join(ROOT, SOURCE);
 
   // Optimize images
-  console.log('Optimizing images...');
+  console.log("Optimizing images...");
   const jpgFiles = await findFiles(sourceDir, ".jpg");
   const jpegFiles = await findFiles(sourceDir, ".jpeg");
   const pngFiles = await findFiles(sourceDir, ".png");
@@ -126,9 +126,7 @@ async function build() {
 
   // Load all CSS files into memory
   const cssFiles = await findFiles(sourceDir, ".css");
-  const cssContents = await Promise.all(
-    cssFiles.map((file) => readFile(file, "utf-8")),
-  );
+  const cssContents = await Promise.all(cssFiles.map((file) => readFile(file, "utf-8")));
   const baseCss = cssContents.join("");
   console.log(`Loaded ${cssFiles.length} CSS file(s)`);
 
