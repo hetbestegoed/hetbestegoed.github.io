@@ -4,11 +4,6 @@ ticket_link = "https://stichting-het-bestegoed.tickable.nl/music-night-elst"
 button_text = "Koop kaartje"
 
 [[posters]]
-image = "posters/pubquiz.flyer 2026.png"
-ticket_link = "https://stichting-het-bestegoed.tickable.nl/pubquiz-voorjaar-2026"
-button_text = "Koop kaartjes"
-
-[[posters]]
 image = "posters/flyer filmavond 1 april.jpg"
 
 [[posters]]
