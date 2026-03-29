@@ -10,6 +10,6 @@
     "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
-    "oxfmt": "^0.41.0"
+    "oxfmt": "^0.42.0"
   }
 }
