@@ -1,6 +1,5 @@
 {% extends "base.html" %} {% block body_class %} text-center{% endblock body_class %} {% block
-content %} {% set home = load_data(path="data/home.toml") %} {% set nieuws =
-get_section(path="nieuws/_index.md") %}
+content %} {% set home = load_data(path="data/home.toml") %}
 
 <div class="bg-amber-400 text-neutral-900 text-center px-5 py-3">
   <strong>Melding:</strong> de Pubquiz en de Hollandse meezing avond zijn geannuleerd.
@@ -125,37 +124,6 @@ get_section(path="nieuws/_index.md") %}
       </article>
       {% endfor %}
     </div>
-  </div>
-
-  <div class="pt-20">
-    <h2 class="dark:text-neutral-200 text-neutral-800 font-extrabold text-3xl tracking-tight mb-10">
-      Nieuws
-    </h2>
-
-    {% for item in nieuws.pages %}
-    <article
-      class="rounded-md shadow-md border-2 border-solid border-neutral-100 dark:border-neutral-700 p-10 text-left mb-10"
-    >
-      <h1
-        class="dark:text-neutral-200 text-neutral-800 font-extrabold text-2xl tracking-tight mb-5"
-      >
-        {{ item.title }}
-      </h1>
-      {{ item.content | safe }} {% if item.extra.images %} {% set img_count = item.extra.images |
-      length %} {% set remainder = 3 - img_count %}
-      <div class="flex justify-between md:space-x-2 space-y-2 flex-col md:flex-row w-full my-5">
-        {% for img in item.extra.images %}
-        <img src="/{{ img }}" alt="" aria-hidden="true" class="w-full" />
-        {% endfor %} {% for i in range(end=remainder) %}
-        <div class="w-full"></div>
-        {% endfor %}
-      </div>
-      {% endif %}
-      <div class="text-s dark:text-neutral-600 text-neutral-400">
-        Publicatie op {{ item.extra.publication_date }}
-      </div>
-    </article>
-    {% endfor %}
   </div>
 
   <div class="pt-20">
