@@ -28,6 +28,10 @@ gewandeld.
 - **10 km** van 18.00-18.18 uur, op vrijdag van 17.45-18.00 uur
 - **5 km** van 18.15-18.30 uur
 
+### Routekaarten
+
+{{ routes() }}
+
 Defilé start bij sportpark rond 20.00 uur en gaat via Sportweg, Franseweg,
 tabaksweg en om het Eiveld tot voor het Bestegoed.
 

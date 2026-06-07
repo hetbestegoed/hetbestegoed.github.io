@@ -1,3 +1,10 @@
+routes = [
+  { day = 1, km5 = "avond4daagse/routes/a4d-elst-2026-dag-1-5km.pdf", km10 = "avond4daagse/routes/a4d-elst-2026-dag-1-10km.pdf" },
+  { day = 2, km5 = "avond4daagse/routes/a4d-elst-2026-dag-2-5km.pdf", km10 = "avond4daagse/routes/a4d-elst-2026-dag-2-10km.pdf" },
+  { day = 3, km5 = "avond4daagse/routes/a4d-elst-2026-dag-3-5km.pdf", km10 = "avond4daagse/routes/a4d-elst-2026-dag-3-10km.pdf" },
+  { day = 4, km5 = "avond4daagse/routes/a4d-elst-2026-dag-4-5km.pdf", km10 = "avond4daagse/routes/a4d-elst-2026-dag-4-10km.pdf" },
+]
+
 sponsors = [
   { image = "avond4daagse/sponsoren/0.jpg" },
   { image = "avond4daagse/sponsoren/1.jpg" },

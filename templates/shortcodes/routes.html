@@ -1,0 +1,17 @@
+{% set data = load_data(path="data/avond-4daagse-elst.toml") %}
+<div class="not-prose grid grid-cols-1 sm:grid-cols-2 gap-3 my-4">
+  {% for route in data.routes %}
+  <a
+    href="/{{ route.km5 }}"
+    class="flex items-center justify-center rounded-md border-2 border-neutral-300 px-4 py-3 text-center font-semibold text-neutral-700 hover:border-neutral-900 hover:text-neutral-900 dark:border-neutral-600 dark:text-neutral-300 dark:hover:border-neutral-100 dark:hover:text-neutral-100"
+  >
+    Dag {{ route.day }} &mdash; 5 km
+  </a>
+  <a
+    href="/{{ route.km10 }}"
+    class="flex items-center justify-center rounded-md border-2 border-neutral-300 px-4 py-3 text-center font-semibold text-neutral-700 hover:border-neutral-900 hover:text-neutral-900 dark:border-neutral-600 dark:text-neutral-300 dark:hover:border-neutral-100 dark:hover:text-neutral-100"
+  >
+    Dag {{ route.day }} &mdash; 10 km
+  </a>
+  {% endfor %}
+</div>
