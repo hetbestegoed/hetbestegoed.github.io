@@ -5,8 +5,6 @@ template = "hero-page.html"
 [extra]
 subtitle = "De avondvierdaagse in Elst zal plaatsvinden van 9 t/m 12 juni 2026."
 hero_image = "/avondvierdaagse.jpg"
-cta_text = "Koop kaartjes"
-cta_url = "https://kwbn.tixxy.nl/nl/avond4daagse-elst-ut-2026"
 +++
 
 # Loop jij weer mee of voor de eerste keer?
