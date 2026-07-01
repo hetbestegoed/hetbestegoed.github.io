@@ -15,13 +15,13 @@ jobs:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       - uses: jdx/mise-action@e6a8b3978addb5a52f2b4cd9d91eafa7f0ab959d # v4.2.0
       - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
-        id: pnpm-cache
+        id: aube-cache
         with:
           path: node_modules
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
-      - run: pnpm install
-        if: steps.pnpm-cache.outputs.cache-hit != 'true'
-      - run: pnpm exec tailwindcss -i ./base.css -o ./static/css/styles.css --minify
+          key: ${{ runner.os }}-aube-${{ hashFiles('pnpm-lock.yaml') }}
+      - run: aube install
+        if: steps.aube-cache.outputs.cache-hit != 'true'
+      - run: aube exec tailwindcss -i ./base.css -o ./static/css/styles.css --minify
       - run: zola build
       - run: node scripts/build.js
       - run: cp CNAME ./public

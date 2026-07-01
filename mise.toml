@@ -22,11 +22,11 @@ run = "zola serve"
 
 [tasks."start:css"]
 description = "Start Tailwind CSS watcher"
-run = "pnpm exec tailwindcss -i ./base.css -o ./static/css/styles.css --watch"
+run = "aube exec tailwindcss -i ./base.css -o ./static/css/styles.css --watch"
 
 [tasks."css:prod"]
 description = "Compile and minify Tailwind CSS"
-run = "pnpm exec tailwindcss -i ./base.css -o ./static/css/styles.css --minify"
+run = "aube exec tailwindcss -i ./base.css -o ./static/css/styles.css --minify"
 
 [tasks."build:prod"]
 description = "Full production build"
