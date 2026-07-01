@@ -1,7 +1,6 @@
 [tools]
 node = "24"
 zola = "0.22"
-pnpm = "11.5.2"
 aube = "1.25.1"
 
 [tasks.format]
