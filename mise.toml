@@ -2,10 +2,11 @@
 node = "24"
 zola = "0.22"
 aube = "1.25.1"
+"oxfmt" = "0.56.0"
 
 [tasks.format]
 description = "Format all files with oxfmt"
-run = "pnpm exec oxfmt ."
+run = "oxfmt ."
 
 [tasks."generate:maps"]
 description = "Generate static map images for all locations"
