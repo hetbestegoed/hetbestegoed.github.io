@@ -28,7 +28,7 @@ gewandeld.
 
 ### Routekaarten
 
-{{ routes() }}
+{% include "partials/routes.html" %}
 
 Defilé start bij sportpark rond 20.00 uur en gaat via Sportweg, Franseweg,
 tabaksweg en om het Eiveld tot voor het Bestegoed.
@@ -97,8 +97,8 @@ op met onze stichting het emailadres
 De 1e editie van de avondvierdaagse te Elst werd mede mogelijk gemaakt
 door:
 
-{{ sponsors(path="data/avond-4daagse-elst.toml") }}
+{% include "partials/sponsors.html" %}
 
 ## Sfeerimpressie
 
-{{ photos() }}
+{% include "partials/photos.html" %}
