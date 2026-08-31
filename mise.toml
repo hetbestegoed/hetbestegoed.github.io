@@ -1,5 +1,5 @@
 [tools]
-node = "24"
+node = "26"
 zola = "0.22"
 aube = "1.25.1"
 "oxfmt" = "0.56.0"
