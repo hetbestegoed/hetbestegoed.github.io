@@ -30,7 +30,7 @@ jobs:
             version=$(awk -v t="$tool" -F'"' '/^\[\[tools\./{f=index($0,"[[tools." t "]]")||index($0,"[[tools.\"" t "\"]]")} f && /^version/{print $2; exit}' mise.lock)
             BRANCH="mise-upgrade-$(printf '%s' "$tool" | tr -c 'A-Za-z0-9' '-')-$(date +%Y%m%d)"
             git checkout -b "$BRANCH"
-            git add -A mise.toml mise.lock .mise
+            git add mise.toml mise.lock
             git commit -m "chore(mise): upgrade $tool to $version"
             git push origin "$BRANCH"
             gh pr create \
