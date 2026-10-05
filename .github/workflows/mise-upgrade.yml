@@ -19,7 +19,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           BASE=$(git rev-parse --abbrev-ref HEAD)
-          tools=$(awk '/^\[tools\]/{f=1;next} /^\[/{f=0} f && NF && !/^#/{gsub(/[ "=].*/,""); print}' mise.toml)
+          tools=$(awk '/^\[tools\]/{f=1;next} /^\[/{f=0} f && NF && !/^#/{sub(/ *=.*/,""); gsub(/"/,""); print}' mise.toml)
           for tool in $tools; do
             mise upgrade --bump --local "$tool"
             mise lock
@@ -27,10 +27,10 @@ jobs:
               git checkout -- .
               continue
             fi
-            version=$(grep -A1 "^\[\[tools\.$tool\]\]" mise.lock | awk -F'"' '/version/{print $2}')
-            BRANCH="mise-upgrade-${tool}-$(date +%Y%m%d)"
+            version=$(awk -v t="$tool" -F'"' '/^\[\[tools\./{f=index($0,"[[tools." t "]]")||index($0,"[[tools.\"" t "\"]]")} f && /^version/{print $2; exit}' mise.lock)
+            BRANCH="mise-upgrade-$(printf '%s' "$tool" | tr -c 'A-Za-z0-9' '-')-$(date +%Y%m%d)"
             git checkout -b "$BRANCH"
-            git add mise.toml mise.lock
+            git add -A mise.toml mise.lock .mise
             git commit -m "chore(mise): upgrade $tool to $version"
             git push origin "$BRANCH"
             gh pr create \
