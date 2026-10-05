@@ -1,5 +1,10 @@
 [[posters]]
-image = "posters/hollandse-avond-bogonias.jpg"
+image = "posters/pubquiz-nov-2026.jpg"
+ticket_link = "https://stichting-het-bestegoed.tickable.nl/pubquiz-2026"
+button_text = "Koop kaartjes"
+
+[[posters]]
+image = "posters/winter-bingo.jpg"
 
 [[posters]]
 image = "posters/koffie en kleintjes.jpg"
