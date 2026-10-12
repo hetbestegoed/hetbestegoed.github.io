@@ -23,12 +23,11 @@ gewandeld.
 
 ### Starttijden:
 
-- **10 km** van 18.00-18.18 uur, op vrijdag van 17.45-18.00 uur
+- **10 km** van 18.00-18.15 uur
 - **5 km** van 18.15-18.30 uur
 
-### Routekaarten
-
-{% include "partials/routes.html" %}
+De inschrijfkaarten kunnen de maandag ervoor opgehaald worden van
+18.00-19.00 uur bij het Bestegoed.
 
 Defilé start bij sportpark rond 20.00 uur en gaat via Sportweg, Franseweg,
 tabaksweg en om het Eiveld tot voor het Bestegoed.
@@ -51,7 +50,7 @@ e-mailadres: [info@hetbestegoed.nl](mailto:info@hetbestegoed.nl)
 #### Groepen
 
 Scholen en verenigingen ontvangen via e-mail informatie over het
-inschrijven voor de editie .
+inschrijven voor de avond4daagse.
 
 #### Individuele lopers
 
@@ -59,9 +58,8 @@ Vooraf online inschrijven zal medio april mogelijk zijn en voor de start
 aan de inschrijftafel bij Het Bestegoed. De inschrijvingen worden gedaan
 onder auspiciën en verantwoordelijkheid van de Koninklijke Wandelbond
 Nederland. De reglementen en regelingen van de KWBN zijn van toepassing
-op de Elsterse Avondvierdaagse. Het startbewijs ontvang je op de eerste
-wandelavond. Kom deze tijdig voor de start op de eerste avond afhalen
-bij een van de tafels.
+op de Elsterse Avondvierdaagse. De inschrijfkaart kun je de maandag
+ervoor ophalen van 18.00-19.00 uur bij het Bestegoed.
 
 ## Stichting Het Bestegoed zoekt vrijwilligers
 
