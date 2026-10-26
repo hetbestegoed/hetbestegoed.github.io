@@ -1,7 +1,8 @@
 name: Upgrade mise tools
 on:
-  schedule:
-    - cron: "0 0 * * 1"
+  # Schedule disabled: workflow fails due to missing permissions
+  # schedule:
+  #   - cron: "0 0 * * 1"
   workflow_dispatch:
 permissions:
   contents: write
