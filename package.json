@@ -2,12 +2,12 @@
   "name": "hetbestegoed",
   "type": "module",
   "dependencies": {
-    "@tailwindcss/cli": "^4.3.3",
+    "@tailwindcss/cli": "^4.3.4",
     "@tailwindcss/typography": "^0.5.20",
     "csso": "^5.0.5",
     "html-minifier-terser": "^7.2.0",
     "oxfmt": "^0.76.0",
     "sharp": "^0.35.5",
-    "tailwindcss": "^4.3.3"
+    "tailwindcss": "^4.3.4"
   }
 }
